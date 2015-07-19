@@ -111,7 +111,7 @@ input, button {
     font-size: 14px;
     display: inline-block;
     border-radius: 24px;
-    transition: all .3s;
+    transition: background-color .3s;
     &:hover {
         color: white;
     }
@@ -391,7 +391,7 @@ nav.navbar-default {
         padding: 4px 16px;
         background: #e11010;
         color: white;
-        transition: all .3s;
+        transition: background-color .3s;
         &:hover {
             background: #a30c0c;
             color: white;
@@ -413,7 +413,7 @@ nav.navbar-default {
     text-align: center;
     margin: 4px 3px;
     border-radius: 4px;
-    transition: all .3s;
+    transition: background-color .3s;
     &, i {
         box-sizing: content-box;
         -moz-box-sizing: content-box;
@@ -562,7 +562,7 @@ footer {
             display: inline-block;
         }
         .home-menu-link-container {
-            transition: all .3s;
+            transition: background-color .3s;
             background-image: url("/img/home_menu_links.png");
             background-size: cover;
             width: 175px;
