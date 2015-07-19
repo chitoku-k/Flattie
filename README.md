@@ -1,7 +1,7 @@
 Flattie
 =======
 
-[https://chitoku.jp/](ちとくのホームページ) で使用されている WordPress テーマです。
+[ちとくのホームページ](https://chitoku.jp/) で使用されている WordPress テーマです。
 
 ## ビルド
 
