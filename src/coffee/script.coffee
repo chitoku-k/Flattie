@@ -109,5 +109,5 @@ jQuery ($) ->
         return
     )
 
-    $.getScript(WIDGET_URL).done(OnWidgetsLoaded)
+    window.addEventListener("load", -> $.getScript(WIDGET_URL).done(OnWidgetsLoaded))
     return
