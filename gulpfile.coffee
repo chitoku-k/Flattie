@@ -1,16 +1,13 @@
-gulp      = require("gulp")
-$         = require("gulp-load-plugins")()
-run       = require("run-sequence")
-pipe      = require("multipipe")
+gulp    = require("gulp")
+$       = require("gulp-load-plugins")()
+run     = require("run-sequence")
+pipe    = require("multipipe")
 
-ROOT      = "../httpdocs/www"
-WORDPRESS = "#{ROOT}/wordpress"
-FLATTIE   = "#{WORDPRESS}/wp-content/themes/flattie"
+DIST    = process.env.FLATTIE_DIST || "./dist/"
+WP_CSS  = "<?= get_stylesheet_uri(); ?>"
+WP_DIR  = "<?= get_template_directory_uri(); ?>"
 
-WP_CSS    = "<?= get_stylesheet_uri(); ?>"
-WP_DIR    = "<?= get_template_directory_uri(); ?>"
-
-WP_META   = """
+WP_META = """
 /*
 Theme Name: Flattie
 Description: Flat designed WordPress theme.
@@ -22,7 +19,7 @@ Version: 1.0.0
 gulp.task("coffee", ->
     gulp.src("./src/coffee/*.coffee")
         .pipe($.coffee(bare: true))
-        .pipe(gulp.dest("./dest/js"))
+        .pipe(gulp.dest("./dev/js"))
 )
 
 gulp.task("sass", ->
@@ -31,24 +28,24 @@ gulp.task("sass", ->
             indentWidth: 4
             outputStyle: "expanded"
         ))
-        .pipe(gulp.dest("./dest/css"))
+        .pipe(gulp.dest("./dev/css"))
 )
 
 minify_js = ->
     pipe($.uglify(preserveComments: "some"),
          $.flatten(),
-         gulp.dest("#{FLATTIE}/js"))
+         gulp.dest("#{DIST}/js"))
 
 minify_css = ->
     pipe($.csso(),
          $.header(WP_META),
          $.flatten(),
-         gulp.dest("#{FLATTIE}/"))
+         gulp.dest("#{DIST}/"))
 
 replace_url = ->
     pipe($.replace(/href=(.)\.\.\/\.\.\/dest\/.*\.css/g, "href=$1#{WP_CSS}"),
          $.replace(/src=(.)\.\.\/\.\.\/dest/g, "src=$1#{WP_DIR}"),
-         gulp.dest("#{FLATTIE}/"))
+         gulp.dest("#{DIST}/"))
 
 gulp.task("assets", ->
     assets = $.useref.assets()
@@ -63,18 +60,18 @@ gulp.task("assets", ->
 
 gulp.task("images", ->
     gulp.src(["./img/**", "!/**/Thumbs.db"])
-        .pipe(gulp.dest("#{FLATTIE}/img/"))
+        .pipe(gulp.dest("#{DIST}/img/"))
 )
 
 gulp.task("fonts", ->
     gulp.src("./bower_components/**/fonts/*")
         .pipe($.flatten())
-        .pipe(gulp.dest("#{FLATTIE}/fonts/"))
+        .pipe(gulp.dest("#{DIST}/fonts/"))
 )
 
 gulp.task("fancybox", ->
     gulp.src(["./bower_components/fancybox/source/*.*", "!**/*.js", "!**/*.css", "!**/Thumbs.db"])
-        .pipe(gulp.dest("#{FLATTIE}/"))
+        .pipe(gulp.dest("#{DIST}/"))
 )
 
 gulp.task("default", (cb) -> run(["coffee", "sass"], ["assets", "fancybox", "images", "fonts"], cb))
