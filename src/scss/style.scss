@@ -148,10 +148,10 @@ input, button {
             width: 402px;
             height: 40px;
         }
-        svg + & {
-            display: none;
-            background: none;
-        }
+    }
+    svg #{&}-fallback {
+        display: none;
+        background: none;
     }
 }
 #nav-container {
