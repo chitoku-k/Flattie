@@ -22,7 +22,7 @@ if ( is_search() ) {
 }     ?></title>
         <!-- build:css ../../dest/css/style.css -->
         <link rel="stylesheet" type="text/css" href="../../bower_components/fancybox/source/jquery.fancybox.css">
-        <link rel="stylesheet" type="text/css" href="../../dest/css/style.css">
+        <link rel="stylesheet" type="text/css" href="../../dev/css/style.css">
         <!-- endbuild -->
         <?php wp_head(); ?>
         <?= "<!--[if lte IE 8]>\n" ?>
@@ -71,7 +71,7 @@ if ( is_search() ) {
             <nav class="navbar navbar-navy container">
 <?php
 class Flattie_Nav_Walker extends Walker_Nav_Menu {
-    function start_el( &$output, $item, $depth, $args ) {
+    function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
         global $post;
         global $wp_query;
         $indent = '        ' . ( ( $depth ) ? str_repeat( '  ' , $depth ) : '');
@@ -132,12 +132,12 @@ class Flattie_Nav_Walker extends Walker_Nav_Menu {
         $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
     }
 
-    function start_lvl( &$output, $depth ) {
+    function start_lvl( &$output, $depth = 0, $args = array() ) {
         $indent = '            ' . str_repeat( ' ', $depth );
         $output .= "\n" . $indent . '<ul class="dropdown-menu">' . "\n";
     }
 
-    function display_element( $element, &$children_elements, $max_depth, $depth=0, $args, &$output ) {
+    function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {
         $id_field = $this->db_fields['id'];
         if ( is_object( $args[0] ) ) {
             $args[0]->has_children = ! empty( $children_elements[$element->$id_field] );

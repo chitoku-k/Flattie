@@ -2,7 +2,7 @@
 <?php
 wp_footer();
 if( !is_preview() ) {
-    include '/var/www/vhosts/chitoku.jp/httpdocs/www/lunalys/analyzer/tracker.php';
+    include dirname(dirname(dirname(dirname(dirname(__FILE__))))) . '/lunalys/analyzer/tracker.php';
 ?>
         <script type="text/javascript" src="/lunalys/analyzer/add.js"></script>
 <?php
