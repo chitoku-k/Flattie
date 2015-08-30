@@ -63,6 +63,11 @@ gulp.task("images", ->
         .pipe(gulp.dest("#{DIST}/img/"))
 )
 
+gulp.task("editor_css", ->
+    gulp.src("./dev/css/editor.css")
+        .pipe(gulp.dest("#{DIST}/"))
+)
+
 gulp.task("fonts", ->
     gulp.src("./bower_components/**/fonts/*")
         .pipe($.flatten())
@@ -74,4 +79,4 @@ gulp.task("fancybox", ->
         .pipe(gulp.dest("#{DIST}/"))
 )
 
-gulp.task("default", (cb) -> run(["coffee", "sass"], ["assets", "fancybox", "images", "fonts"], cb))
+gulp.task("default", (cb) -> run(["coffee", "sass"], ["assets", "fancybox", "images", "fonts", "editor_css"], cb))
