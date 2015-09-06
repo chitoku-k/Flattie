@@ -485,10 +485,10 @@ nav.navbar-default {
         margin-bottom: 0;
         li {
             margin-bottom: 3px;
+            a {
+                display: block;
+            }
         }
-    }
-    a {
-        display: block;
     }
 }
 #sub-nav {
@@ -745,7 +745,7 @@ footer {
     }
 }
 @include media-wide-pc {
-    #header-container {
+    #header-container, nav.navbar-navy, #main-container {
         padding: 0 10px;
     }
 }
