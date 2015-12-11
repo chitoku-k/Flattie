@@ -153,6 +153,11 @@ input, button {
         display: none;
         background: none;
     }
+    @include media-sp {
+        float: none !important;
+        text-align: center;
+        margin: 6px auto;
+    }
 }
 #nav-container {
     margin-bottom: 24px;
