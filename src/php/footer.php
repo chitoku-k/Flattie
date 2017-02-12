@@ -10,7 +10,7 @@ if( !is_preview() ) {
 ?>
     <!-- build:js ../../dest/js/script.min.js -->
     <script type="text/javascript" src="../../dev/js/script.js"></script>
-    <script type="text/javascript" src="../../bower_components/fancybox/source/jquery.fancybox.js"></script>
+    <script type="text/javascript" src="../../node_modules/jquery-fancybox/source/js/jquery.fancybox.js"></script>
     <!-- endbuild -->
 </body>
 </html>

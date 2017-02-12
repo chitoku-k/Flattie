@@ -22,14 +22,13 @@ if ( is_search() ) {
 }
 ?></title>
     <!-- build:css ../../dest/css/style.css -->
-    <link rel="stylesheet" type="text/css" href="../../bower_components/fancybox/source/jquery.fancybox.css">
     <link rel="stylesheet" type="text/css" href="../../dev/css/style.css">
     <!-- endbuild -->
     <?php wp_head(); ?>
     <?= "<!--[if lte IE 8]>\n" ?>
     <!-- build:js ../../dest/js/ie8.js -->
-    <script type="text/javascript" src="../../bower_components/respond/dest/respond.src.js"></script>
-    <script type="text/javascript" src="../../bower_components/html5shiv/dist/html5shiv.js"></script>
+    <script type="text/javascript" src="../../node_modules/respond.js/dest/respond.src.js"></script>
+    <script type="text/javascript" src="../../node_modules/html5shiv/dist/html5shiv.js"></script>
     <!-- endbuild -->
     <?= "<![endif]-->\n" ?>
 </head>

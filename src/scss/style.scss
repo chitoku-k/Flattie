@@ -1,7 +1,8 @@
 @charset "utf-8";
 
 $fa-font-path: "./fonts";
-@import "../../bower_components/font-awesome/scss/font-awesome";
+@import "../../node_modules/font-awesome/scss/font-awesome";
+@import "../../node_modules/jquery-fancybox/source/scss/jquery.fancybox.scss";
 @import "bootstrap-custom";
 
 @mixin media-of($base, $width) {

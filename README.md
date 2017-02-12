@@ -11,7 +11,6 @@ Node.js 上で `gulp` を実行することでビルドでき、その結果は 
 
 ```
 $ npm install
-$ npm install -g gulp bower
-$ bower install
+$ npm install -g gulp
 $ gulp
 ```
