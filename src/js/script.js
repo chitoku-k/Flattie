@@ -58,17 +58,17 @@ jQuery($ => {
             width: TIMELINE_WIDGET_WIDTH,
             height: TIMELINE_WIDGET_HEIGHT,
             autoSize: false,
-            afterShow: current => {
+            afterShow: function (current) {
                 $.fancybox.showLoading();
                 $twitterWidget.empty();
                 twttr.widgets.createTimeline(TIMELINE_WIDGET_ID, $twitterWidget[0], {
                     lang: "ja",
                     chrome: "nofooter",
-                    height: Math.min(TIMELINE_WIDGET_HEIGHT, current.inner.height()),
+                    height: Math.min(TIMELINE_WIDGET_HEIGHT, this.inner.height()),
                 }).then(elm => {
-                    $.fancybox.hideLoading()
+                    $.fancybox.hideLoading();
                 });
-            }
+            },
         });
     }
 
