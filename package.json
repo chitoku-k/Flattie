@@ -1,15 +1,21 @@
 {
   "name": "Flattie",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Flat designed WordPress theme.",
   "main": "\"\"",
   "dependencies": {
-    "gulp": "^3.9.1"
+    "bootstrap-sass": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "html5shiv": "^3.7.3",
+    "jquery-fancybox": "^3.1.0",
+    "respond.js": "^1.4.2"
   },
   "devDependencies": {
-    "bootstrap-sass": "^3.3.7",
+    "babel-core": "^6.22.1",
+    "babel-preset-es2015-riot": "^1.1.0",
     "coffee-script": "^1.12.3",
-    "font-awesome": "^4.7.0",
+    "del": "^2.2.2",
+    "gulp": "github:gulpjs/gulp#4.0",
     "gulp-coffee": "^2.3.3",
     "gulp-csso": "^2.0.0",
     "gulp-flatten": "^0.3.1",
@@ -20,13 +26,11 @@
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^2.0.1",
     "gulp-useref": "^3.1.2",
-    "html5shiv": "^3.7.3",
-    "jquery-fancybox": "^3.1.0",
-    "multipipe": "^1.0.2",
-    "respond.js": "^1.4.2",
-    "run-sequence": "^1.2.2"
+    "lazypipe": "^1.0.1"
   },
   "scripts": {
+    "start": "gulp",
+    "clean": "gulp clean",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Chitoku <odango@chitoku.jp>",
