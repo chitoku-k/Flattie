@@ -21,9 +21,9 @@ gulp.task("clean", () =>
     del(["./dist/**/*"])
 );
 
-gulp.task("coffee", () =>
-    gulp.src("./src/coffee/*.coffee")
-        .pipe($.coffee({ bare: true }))
+gulp.task("build", () =>
+    gulp.src("./src/js/*.js")
+        .pipe($.babel())
         .pipe(gulp.dest("./dev/js"))
 );
 
@@ -86,7 +86,7 @@ gulp.task("fancybox", () =>
 
 gulp.task("default",
     gulp.series(
-        gulp.parallel("coffee", "sass"),
+        gulp.parallel("build", "sass"),
         gulp.parallel("assets", "fancybox", "images", "fonts", "editor_css")
     )
 );
