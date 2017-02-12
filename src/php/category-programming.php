@@ -10,10 +10,10 @@
             </nav>
         </article>
 <?php
-query_posts( array(
-    'category__and' => array( get_query_var( 'cat' ) ),
+query_posts( [
+    'category__and' => [ get_query_var( 'cat' ) ],
     'paged' => get_query_var( 'paged' ),
-) );
+] );
 get_template_part( 'loop' );
 get_template_part( 'share-buttons' );
 ?>

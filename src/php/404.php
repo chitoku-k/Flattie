@@ -1,6 +1,6 @@
 <?php
 global $error_code;
-if ( $error_code == 403 ) {
+if ( +$error_code === 403 ) {
     header( 'HTTP/1.1 403 Forbidden' );
     include TEMPLATEPATH . '/403.php';
     exit;

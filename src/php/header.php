@@ -71,7 +71,7 @@ if ( is_search() ) {
         <nav class="navbar navbar-navy container">
 <?php
 class Flattie_Nav_Walker extends Walker_Nav_Menu {
-    function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
+    function start_el( &$output, $item, $depth = 0, $args = [], $id = 0 ) {
         global $post;
         global $wp_query;
         $indent = '        ' . ( ( $depth ) ? str_repeat( '  ' , $depth ) : '');
@@ -81,7 +81,7 @@ class Flattie_Nav_Walker extends Walker_Nav_Menu {
 
         $class_names = $value = '';
 
-        $classes = empty( $item->classes ) ? array() : (array) $item->classes;
+        $classes = empty( $item->classes ) ? [] : (array) $item->classes;
         $classes[] = $args->has_children ? 'dropdown' : '';
 
         if ( $item->current || $item->current_item_ancestor || $item->current_item_parent ) {
@@ -103,7 +103,7 @@ class Flattie_Nav_Walker extends Walker_Nav_Menu {
             $classes[] = 'dropdown-submenu';
         }
 
-        $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
+        $class_names = implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
         $class_names = ' class="' . esc_attr( $class_names ) . '"';
 
         $output .= $indent . '  <li id="menu-item-' . $item->ID . '"' . $value . $class_names .'>';
@@ -132,7 +132,7 @@ class Flattie_Nav_Walker extends Walker_Nav_Menu {
         $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
     }
 
-    function start_lvl( &$output, $depth = 0, $args = array() ) {
+    function start_lvl( &$output, $depth = 0, $args = [] ) {
         $indent = '            ' . str_repeat( ' ', $depth );
         $output .= "\n" . $indent . '<ul class="dropdown-menu">' . "\n";
     }
@@ -146,13 +146,13 @@ class Flattie_Nav_Walker extends Walker_Nav_Menu {
     }
 }
 
-wp_nav_menu( array(
+wp_nav_menu( [
     'theme_location' => 'header-menu',
     'container' => '',
     'menu_class' => '',
     'items_wrap' => '            <ul class="nav navbar-nav">' . "\n" . '%3$s' . "\n",
     'walker' => new Flattie_Nav_Walker,
-) );
+] );
 ?>
                 <li class="nav-icon"><a id="search-link" class="search-icon"><i class="fa fa-search"></i></a></li>
                 <li class="nav-icon"><a href="https://twitter.com/java_shit" class="twitter-icon"><i class="fa fa-twitter"></i></a></li>

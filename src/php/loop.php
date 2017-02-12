@@ -10,7 +10,7 @@ while ( have_posts() ) {
     if ( is_page() ) {
         $current_post = $post;
         if ( $current_post->post_parent ) {
-            $parent_posts = array( get_the_title( $current_post ) );
+            $parent_posts = [ get_the_title( $current_post ) ];
             while ( $current_post->post_parent ) {
                 $title = get_the_title( $current_post->post_parent );
                 $parent_posts[] = '<a href="' . get_permalink( $current_post->post_parent ) . '" title="' . $title . '">' . $title . '</a>';

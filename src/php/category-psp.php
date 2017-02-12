@@ -33,21 +33,21 @@ function show_posts_list( $posts ) {
             <h2 style="margin-top: 0;">目次</h2>
             <ul>
     <?php
-show_posts_list( get_posts( array(
+show_posts_list( get_posts( [
     'cat' => get_query_var( 'cat' ),
     'order' => 'ASC',
-) ) );
+] ) );
 ?>
             </ul>
             <h2>資料</h2>
             <ul>
 <?php
-show_posts_list( get_posts( array(
+show_posts_list( get_posts( [
     'post_type' => 'page',
     'post_parent' => 85,
     'order' => 'ASC',
     'orderby' => 'menu_order',
-) ) );
+] ) );
 ?>
             </ul>
         </article>
