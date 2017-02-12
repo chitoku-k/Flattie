@@ -48,13 +48,10 @@ replace_url = ->
          gulp.dest("#{DIST}/"))
 
 gulp.task("assets", ->
-    assets = $.useref.assets()
     gulp.src("./src/php/*")
-        .pipe(assets)
+        .pipe($.useref())
         .pipe($.if("*.js", minify_js()))
         .pipe($.if("*.css", minify_css()))
-        .pipe(assets.restore())
-        .pipe($.useref())
         .pipe($.if("*.php", replace_url()))
 )
 
