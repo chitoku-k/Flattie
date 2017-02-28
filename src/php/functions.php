@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . '/Flattie_Nav_Walker.php';
+
 remove_action( 'wp_head', 'wp_generator' );
 remove_action( 'wp_head', 'rsd_link' );
 register_nav_menu( 'header-menu' , 'ヘッダーメニュー' );

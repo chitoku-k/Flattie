@@ -111,38 +111,6 @@ input, button {
         margin-left: 4px;
     }
 }
-.header-icon {
-    height: 42px;
-    padding: 6px 24px 0;
-    line-height: 1.0;
-    color: white;
-    text-align: center;
-    font-size: 14px;
-    display: inline-block;
-    border-radius: 24px;
-    transition: background-color .3s;
-    &:hover {
-        color: white;
-    }
-    i {
-        font-size: 32px;
-        vertical-align: middle;
-    }
-}
-#header-links {
-    > .twitter-icon {
-        @include hover(#4aa3df, #2c85c1);
-    }
-    > .mail-icon {
-        @include hover(#1abc9c, #009e7e);
-        i {
-            font-size: 28px;
-        }
-    }
-    > .profile-icon {
-        @include hover(#16a085, #008267);
-    }
-}
 #header-title {
     h1 {
         padding: 0;

@@ -4,23 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <title><?php
-global $error_code;
-global $title;
-$title = get_bloginfo( 'name' );
-if ( is_search() ) {
-    echo $title = '検索結果: ' . get_search_query() . ' - ' . $title;
-} else if ( isset( $error_code ) ) {
-    switch ( $error_code ) {
-        case 401: echo $title = '401 Not Authorized - ' . $title; break;
-        case 403: echo $title = '403 Forbidden - ' . $title; break;
-        case 404: echo $title = '404 Not Found - ' . $title; break;
-        case 500: echo $title = '500 Internal Server Error - ' . $title; break;
-    }
-} else {
-    echo $title = wp_title( '-', false, 'right' ) . $title;
-}
-?></title>
+    <title><?php get_template_part( 'title' ); ?></title>
     <!-- build:css ../../dest/css/style.css -->
     <link rel="stylesheet" type="text/css" href="../../dev/css/style.css">
     <!-- endbuild -->
@@ -34,17 +18,6 @@ if ( is_search() ) {
 </head>
 <body <?php body_class(); ?>>
     <header id="header-container" class="container">
-        <div id="header-links" class="pull-right">
-            <a href="https://twitter.com/java_shit" target="_blank" class="header-icon twitter-icon">
-                <i class="fa fa-twitter"></i>
-            </a>
-            <a href="<?= get_home_url(); ?>/mail" class="header-icon mail-icon">
-                <i class="fa fa-envelope-o"></i>
-            </a>
-            <a href="<?= get_home_url(); ?>/about" class="header-icon profile-icon">
-                <i class="fa fa-user"></i>
-            </a>
-        </div>
         <div id="header-title" class="pull-left">
             <h1>
                 <a href="<?= get_home_url(); ?>">
@@ -60,7 +33,7 @@ if ( is_search() ) {
                         <path style="fill:#2f4255;" d="m 264,18.8 c 0.6,-0 1.2,-0.1 1.9,-0.1 0.6,-0 1.9,-0 3.9,-0 l 19.1,0 c 1.9,-0 3.2,0 3.9,0 0.6,0 1.3,0 1.9,0.1 l 0,-5 c -0.7,0.1 -1.4,0.1 -2.1,0.2 -0.7,0 -1.9,0 -3.6,0 l -19.1,0 c -1.7,0 -2.9,-0 -3.6,-0 -0.7,-0 -1.4,-0.1 -2.1,-0.2 z" />
                         <path style="fill:#2f4255;" d="m 301.5,5.5 c 3.1,1 6.3,2.7 9.6,4.9 l 2.3,-3.9 c -1.4,-0.9 -3,-1.7 -4.5,-2.4 -1.5,-0.7 -3.2,-1.4 -5,-2.1 z m -2.8,8.7 c 1.8,0.7 3.5,1.4 5.1,2.3 1.6,0.8 3.1,1.8 4.5,2.8 l 2.2,-4 c -1.5,-0.9 -3,-1.8 -4.5,-2.6 -1.5,-0.7 -3.1,-1.5 -5,-2.2 z m 2,17.3 c 0.3,-0.1 0.6,-0.2 1,-0.2 0.3,-0 0.8,-0.1 1.4,-0.3 4.4,-0.8 8.1,-2.1 11.3,-3.7 3.1,-1.6 5.9,-3.8 8.1,-6.4 1,-1.2 2,-2.6 2.9,-4 0.8,-1.4 1.6,-3.1 2.4,-5 -0.8,-0.5 -1.4,-1 -1.9,-1.4 -0.4,-0.4 -1,-1 -1.7,-1.7 -0.5,1.5 -1.1,2.9 -1.7,4.2 -0.6,1.2 -1.4,2.4 -2.3,3.7 -1.4,1.8 -2.9,3.4 -4.6,4.7 -1.6,1.2 -3.5,2.3 -5.7,3.1 -1.9,0.7 -3.7,1.2 -5.5,1.7 -1.8,0.4 -3.4,0.6 -4.8,0.6 z M 320.3,3.4 c 0.6,0.7 1.2,1.4 1.7,2.1 0.5,0.7 1,1.6 1.6,2.6 l 2.6,-1.5 C 325.8,5.6 325.3,4.8 324.8,4.1 324.3,3.4 323.7,2.7 323,2 z m 9.8,1 C 329.7,3.5 329.2,2.7 328.7,2.1 328.2,1.4 327.6,0.7 326.9,0 l -2.5,1.4 c 0.6,0.7 1.2,1.4 1.7,2.1 0.5,0.7 1,1.5 1.5,2.4 z" />
                         <foreignObject width="0" height="0">
-                            <span id="header-title-fallback"></span>
+                            <span id="header-title-fallback"><?= get_bloginfo( 'name' ); ?></span>
                         </foreignObject>
                     </svg>
                 </a>
@@ -70,94 +43,15 @@ if ( is_search() ) {
     <div id="nav-container">
         <nav class="navbar navbar-navy container">
 <?php
-class Flattie_Nav_Walker extends Walker_Nav_Menu {
-    function start_el( &$output, $item, $depth = 0, $args = [], $id = 0 ) {
-        global $post;
-        global $wp_query;
-        $indent = '        ' . ( ( $depth ) ? str_repeat( '  ' , $depth ) : '');
-        if ( $depth > 0 ) {
-            $indent .= str_repeat( '    ' , $depth );
-        }
-
-        $class_names = $value = '';
-
-        $classes = empty( $item->classes ) ? [] : (array) $item->classes;
-        $classes[] = $args->has_children ? 'dropdown' : '';
-
-        if ( $item->current || $item->current_item_ancestor || $item->current_item_parent ) {
-            $classes[] = 'active';
-        }
-        if ( !is_search() && isset( $post ) ) {
-            if ( $item->object === 'page' ) {
-                $current_post = $post;
-                while ( $current_post->post_parent ) {
-                    if ( (int) $item->object_id === $current_post->post_parent ) {
-                        $classes[] = 'active';
-                        break;
-                    }
-                    $current_post = get_post( $current_post->post_parent );
-                }
-            }
-        }
-        if ( $depth && $args->has_children ) {
-            $classes[] = 'dropdown-submenu';
-        }
-
-        $class_names = implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
-        $class_names = ' class="' . esc_attr( $class_names ) . '"';
-
-        $output .= $indent . '  <li id="menu-item-' . $item->ID . '"' . $value . $class_names .'>';
-
-        $attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
-        $attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
-        $attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
-        $attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
-
-        if ( $args->has_children ) {
-            $attributes .= ' class="dropdown-toggle"';
-        }
-
-        $item_output = $args->before;
-        $item_output .= '<a' . $attributes . '>';
-        $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID );
-        $item_output .= $args->link_after;
-
-        if ( $args->has_children ) {
-            $item_output .= ' <span class="caret"></span></a>';
-        } else {
-            $item_output .= '</a>';
-        }
-        $item_output .= $args->after;
-
-        $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
-    }
-
-    function start_lvl( &$output, $depth = 0, $args = [] ) {
-        $indent = '            ' . str_repeat( ' ', $depth );
-        $output .= "\n" . $indent . '<ul class="dropdown-menu">' . "\n";
-    }
-
-    function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {
-        $id_field = $this->db_fields['id'];
-        if ( is_object( $args[0] ) ) {
-            $args[0]->has_children = ! empty( $children_elements[$element->$id_field] );
-        }
-        return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
-    }
-}
-
 wp_nav_menu( [
     'theme_location' => 'header-menu',
     'container' => '',
     'menu_class' => '',
     'items_wrap' => '            <ul class="nav navbar-nav">' . "\n" . '%3$s' . "\n",
-    'walker' => new Flattie_Nav_Walker,
+    'walker' => new Flattie_Nav_Walker(),
 ] );
 ?>
                 <li class="nav-icon"><a id="search-link" class="search-icon"><i class="fa fa-search"></i></a></li>
-                <li class="nav-icon"><a href="https://twitter.com/java_shit" class="twitter-icon"><i class="fa fa-twitter"></i></a></li>
-                <li class="nav-icon"><a href="<?= get_home_url(); ?>/mail" class="mail-icon"><i class="fa fa-envelope-o"></i></a></li>
-                <li class="nav-icon"><a href="<?= get_home_url(); ?>/about" class="profile-icon"><i class="fa fa-user"></i></a></li>
             </ul>
 <?php get_search_form(); ?>
         </nav>
