@@ -82,6 +82,13 @@ input, button {
     * {
         font-weight: 400 !important;
     }
+    .crayon-line, .crayon-num {
+        padding: 3px 5px !important;
+    }
+    .crayon-table .crayon-num {
+        border-right-width: 0 !important;
+        min-width: 50px !important;
+    }
 }
 .crayon-main, .gist .gist-data {
     -webkit-overflow-scrolling: touch;

@@ -22,7 +22,7 @@
                     <div class="home-menu-link-container"></div>
                     <h2>RecoTw Explorer</h2>
                 </a>
-                <p>RecoTw の閲覧 / 登録用 Web アプリケーションです。RecoTw は G2 氏制作の黒歴史ツイート登録サービスです。詳細は <del>recotw.tk（凍結済）</del> <a href="http://recotw.black/" target="_blank" style="text-decoration: underline;">recotw.black</a> へ。</p>
+                <p>RecoTw の閲覧 / 登録用 Web アプリケーションです。RecoTw は G2 氏制作の黒歴史ツイート登録サービスです。</p>
             </div>
             <div class="clearfix visible-md-block visible-lg-block"></div>
             <div class="home-menu-link col-xs-6 col-md-4">
@@ -30,22 +30,22 @@
                     <div class="home-menu-link-container"></div>
                     <h2>Windows</h2>
                 </a>
-                <p>Windows のデスクトップ向けフリーソフトの紹介コーナーです。<s>管理人のメモ用です。</s></p>
+                <p>Windows のデスクトップ向けフリーソフトの紹介コーナーです。でも最近は Windows を使っていません……。</p>
             </div>
             <div class="clearfix visible-sm-block visible-xs-block"></div>
             <div class="home-menu-link col-xs-6 col-md-4">
-                <a href="<?= get_home_url();?>/mobile" id="psp-smartphone-link" class="home-menu-link-image" title="PSP / スマフォ">
+                <a href="<?= get_home_url();?>/gadgets" id="psp-smartphone-link" class="home-menu-link-image" title="ガジェット">
                     <div class="home-menu-link-container"></div>
-                    <h2>PSP / スマフォ</h2>
+                    <h2>ガジェット</h2>
                 </a>
-                <p>PSP とかスマートフォンの小ネタ紹介です。<s>分類中に行き先を失った記事たちとも。</s></p>
+                <p>周辺機器やガジェットを使ってみた感想を書いてみます。</p>
             </div>
             <div class="home-menu-link col-xs-6 col-md-4">
                 <a href="<?= get_home_url();?>/programming" id="programming-link" class="home-menu-link-image" title="プログラミング">
                     <div class="home-menu-link-container"></div>
                     <h2>プログラミング</h2>
                 </a>
-                <p>PSP 以外のプログラムについてです。WPF、C#、Twitter、CSS、JavaScript など。</p>
+                <p>WPF、C#、Twitter、CSS、JavaScript など。</p>
             </div>
             <div class="clearfix"></div>
         </article>
