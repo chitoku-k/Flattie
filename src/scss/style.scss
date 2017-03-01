@@ -117,23 +117,13 @@ input, button {
     }
 }
 #header-title {
-    h1 {
+    h1, svg {
         padding: 0;
         margin: 0;
         height: 40px;
     }
-    #{&}-fallback {
-        cursor: pointer;
-        display: block;
-        background: url("./img/logo.png");
-        @at-root svg, & {
-            width: 402px;
-            height: 40px;
-        }
-    }
-    svg #{&}-fallback {
+    #{&}-text {
         display: none;
-        background: none;
     }
     @include media-sp {
         float: none !important;
@@ -807,70 +797,3 @@ footer {
         margin-top: 0;
     }
 }
-
-/* Hack: Internet Explorer 7 */
-.nav > li > a, #search-box {
-    *height: 20px;
-}
-#main-content-container {
-    *margin-right: -15px
-}
-.main-content {
-    *margin-right: 15px;
-}
-.header-icon {
-    *background-image: url("./img/sprites.png");
-    *background-repeat: no-repeat;
-    *padding: 6px 38px 0;
-    *margin-left: 8px !important;
-}
-#header-links {
-    > .twitter-icon {
-        *background-position: 26px -196px;
-    }
-    > .mail-icon {
-        *background-position: 25px -247px;
-    }
-    > .profile-icon {
-        *background-position: 24px -300px;
-    }
-}
-#search-form input {
-    *width: 195px;
-    *background-image: url("./img/sprites.png");
-    *background-repeat: no-repeat;
-    *background-position: 14px -158px;
-}
-@media screen and (max-width: 768px) {
-    html, body {
-        *overflow-x: hidden;
-    }
-    #nav-container {
-        *margin-top: 15px;
-    }
-    .nav > li {
-        *float: left;
-        .nav-icon {
-            *display: inline-block;
-            a {
-                *display: inline-block;
-                *min-width: 10px;
-                *background-image: url("./img/sprites.png");
-                *background-repeat: no-repeat;
-            }
-            > .search-icon {
-                *background-position: 11px -109px;
-            }
-            > .twitter-icon {
-                *background-position: 11px 17px;
-            }
-            > .mail-icon {
-                *background-position: 11px -23px;
-            }
-            > .profile-icon {
-                *background-position: 11px -65px;
-            }
-        }
-    }
-}
-

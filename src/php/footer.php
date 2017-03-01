@@ -11,7 +11,6 @@ if( !is_preview() ) {
 
         ga('create', 'UA-91844602-1', 'auto');
         ga('send', 'pageview');
-
     </script>
 <?php
 }
