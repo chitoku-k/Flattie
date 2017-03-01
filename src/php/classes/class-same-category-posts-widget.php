@@ -36,14 +36,14 @@ class Same_Category_Posts_Widget extends WP_Widget {
 ?>
         <div>
             <h2>
-                <a href="<?= $url ?>"><?= $name ?></a>
+                <a href="<?= esc_url( $url ) ?>"><?= esc_html( $name ) ?></a>
             </h2>
             <ul>
 <?php
         if ( is_array( $posts ) ) {
             foreach ( $posts as $post ) {
 ?>
-                <li><a href="<?= get_permalink( $post->ID ); ?>"><?= get_the_title( $post->ID ); ?></a></li>
+                <li><a href="<?= get_permalink( $post->ID ); ?>"><?= esc_html( get_the_title( $post->ID ) ); ?></a></li>
 <?php
             }
         } else {
