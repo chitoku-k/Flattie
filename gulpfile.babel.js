@@ -3,19 +3,9 @@ import del from "del";
 import lazypipe from "lazypipe";
 
 const $ = require("gulp-load-plugins")();
-
 const DIST  = process.env.FLATTIE_DIST || "./dist/";
 const WP_CSS = "<?= get_stylesheet_uri(); ?>";
 const WP_DIR = "<?= get_template_directory_uri(); ?>";
-
-const WP_META = `
-/*
-Theme Name: Flattie
-Description: Flat designed WordPress theme.
-Author: Chitoku
-Version: 1.1.0
-*/
-`;
 
 gulp.task("clean", () =>
     del(["./dist/**/*"])
@@ -50,7 +40,6 @@ gulp.task("assets", () =>
             "*.css",
             lazypipe()
                 .pipe($.csso)
-                .pipe($.header, WP_META)
                 .pipe($.flatten)
                 .pipe(gulp.dest, `${DIST}/`)()
         ))
