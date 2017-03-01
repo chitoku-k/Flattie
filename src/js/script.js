@@ -1,8 +1,8 @@
 jQuery($ => {
     const WIDGET_URL = "https://platform.twitter.com/widgets.js";
     const $navbar = $("#nav-container>nav>ul");
-    const $navsearchForm = $("#nav-search-form");
-    const $navsearchInput = $("#nav-search-form input");
+    const $navSearchForm = $("#nav-search-form");
+    const $navSearchInput = $("#nav-search-form input");
 
     $("#search-link").on("click", () => {
         $navbar.hide();

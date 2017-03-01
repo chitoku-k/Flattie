@@ -21,7 +21,7 @@ class Share_Button_Widget extends WP_Widget {
 ?>
         <div>
             <h2><?= esc_html( $instance['title'] ) ?></h2>
-            <div class="share-button">
+            <div class="share-buttons-container">
                 <a href="<?= esc_url( sprintf($twitter_url, urlencode( html_entity_decode( $title, ENT_QUOTES, 'UTF-8' ) ), $permalink ) ) ?>" target="_blank" class="share-button twitter-icon">
                     <i class="fa fa-twitter"></i>
                 </a>
