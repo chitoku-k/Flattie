@@ -27,7 +27,7 @@ gulp.task("sass", () =>
 );
 
 gulp.task("assets", () =>
-    gulp.src("./src/php/*")
+    gulp.src("./src/php/**/*")
         .pipe($.useref())
         .pipe($.if(
             "*.js",
