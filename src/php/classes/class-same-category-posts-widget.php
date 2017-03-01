@@ -1,6 +1,6 @@
 <?php
 class Same_Category_Posts_Widget extends WP_Widget {
-    function __construct() {
+    public function __construct() {
         parent::__construct(
             'same_category_posts',
             __( '同じカテゴリーの投稿', 'same_category_posts' ),
@@ -10,7 +10,7 @@ class Same_Category_Posts_Widget extends WP_Widget {
         );
     }
 
-    function widget( $args, $instance ) {
+    public function widget( $args, $instance ) {
         global $post;
         if ( is_home() || ! isset( $post ) ) {
             return;
@@ -32,7 +32,7 @@ class Same_Category_Posts_Widget extends WP_Widget {
         }
     }
 
-    function print_list( $name, $url, $posts ) {
+    public function print_list( $name, $url, $posts ) {
 ?>
         <div>
             <h2>

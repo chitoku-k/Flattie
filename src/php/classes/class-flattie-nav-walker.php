@@ -1,6 +1,6 @@
 <?php
 class Flattie_Nav_Walker extends Walker_Nav_Menu {
-    function start_el( &$output, $item, $depth = 0, $args = [], $id = 0 ) {
+    public function start_el( &$output, $item, $depth = 0, $args = [], $id = 0 ) {
         global $post;
         global $wp_query;
         $indent = '        ' . ( ( $depth ) ? str_repeat( '  ' , $depth ) : '');
@@ -61,12 +61,12 @@ class Flattie_Nav_Walker extends Walker_Nav_Menu {
         $output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
     }
 
-    function start_lvl( &$output, $depth = 0, $args = [] ) {
+    public function start_lvl( &$output, $depth = 0, $args = [] ) {
         $indent = '            ' . str_repeat( ' ', $depth );
         $output .= "\n" . $indent . '<ul class="dropdown-menu">' . "\n";
     }
 
-    function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {
+    public function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {
         $id_field = $this->db_fields['id'];
         if ( is_object( $args[0] ) ) {
             $args[0]->has_children = ! empty( $children_elements[$element->$id_field] );
