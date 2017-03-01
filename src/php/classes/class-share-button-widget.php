@@ -19,23 +19,25 @@ class Share_Button_Widget extends WP_Widget {
         $hatena_url = 'https://b.hatena.ne.jp/add?mode=confirm&amp;url=%s';
         $tumblr_url = 'https://www.tumblr.com/share/link?url=%s';
 ?>
-        <div class="share-buttons-container">
+        <div>
             <h2><?= esc_html( $instance['title'] ) ?></h2>
-            <a href="<?= esc_url( sprintf($twitter_url, urlencode( html_entity_decode( $title, ENT_QUOTES, 'UTF-8' ) ), $permalink ) ) ?>" target="_blank" class="share-button twitter-icon">
-                <i class="fa fa-twitter"></i>
-            </a>
-            <a href="<?= esc_url( sprintf($facebook_url, $permalink ) ) ?>" target="_blank" class="share-button facebook-icon">
-                <i class="fa fa-facebook"></i>
-            </a>
-            <a href="<?= esc_url( sprintf($google_plus_url, $permalink ) ) ?>" target="_blank" class="share-button google-plus-icon">
-                <i class="fa fa-google-plus"></i>
-            </a>
-            <a href="<?= esc_url( sprintf($hatena_url, $permalink ) ) ?>" target="_blank" class="share-button hatena-icon">
-                <i class="fa fa-hatena"></i>
-            </a>
-            <a href="<?= esc_url( sprintf($tumblr_url, urlencode( $permalink ) ) ) ?>" target="_blank" class="share-button tumblr-icon">
-                <i class="fa fa-tumblr"></i>
-            </a>
+            <div class="share-button">
+                <a href="<?= esc_url( sprintf($twitter_url, urlencode( html_entity_decode( $title, ENT_QUOTES, 'UTF-8' ) ), $permalink ) ) ?>" target="_blank" class="share-button twitter-icon">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a href="<?= esc_url( sprintf($facebook_url, $permalink ) ) ?>" target="_blank" class="share-button facebook-icon">
+                    <i class="fa fa-facebook"></i>
+                </a>
+                <a href="<?= esc_url( sprintf($google_plus_url, $permalink ) ) ?>" target="_blank" class="share-button google-plus-icon">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+                <a href="<?= esc_url( sprintf($hatena_url, $permalink ) ) ?>" target="_blank" class="share-button hatena-icon">
+                    <i class="fa fa-hatena"></i>
+                </a>
+                <a href="<?= esc_url( sprintf($tumblr_url, urlencode( $permalink ) ) ) ?>" target="_blank" class="share-button tumblr-icon">
+                    <i class="fa fa-tumblr"></i>
+                </a>
+            </div>
         </div>
 <?php
     }
@@ -50,7 +52,7 @@ class Share_Button_Widget extends WP_Widget {
 ?>
         <p>
             <label for="<?= esc_attr( $this->get_field_id( 'title' ) ) ?>">タイトル:</label>
-            <input class="widefat" id="<?= esc_attr( $this->get_field_id( 'title' ) ) ?>" name="<?= esc_attr( $this->get_field_name( 'title' ) ) ?>" value="<?= esc_attr( $instance['title'] ) ?>">
+            <input type="text" class="widefat" id="<?= esc_attr( $this->get_field_id( 'title' ) ) ?>" name="<?= esc_attr( $this->get_field_name( 'title' ) ) ?>" value="<?= esc_attr( $instance['title'] ) ?>">
         </p>
 <?php
     }
