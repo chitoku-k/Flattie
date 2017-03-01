@@ -1,4 +1,5 @@
 jQuery($ => {
+    const WIDGET_URL = "https://platform.twitter.com/widgets.js";
     const $navbar = $("#nav-container>nav>ul");
     const $navsearchForm = $("#nav-search-form");
     const $navsearchInput = $("#nav-search-form input");
@@ -32,4 +33,15 @@ jQuery($ => {
     $(".navbar-nav .dropdown-menu .current-post-ancestor").each(function () {
         $(this).parents(".dropdown").addClass("active");
     });
+
+    window.addEventListener("load", () => {
+        $.getScript(WIDGET_URL).done(() => {
+            twttr.ready(() => {
+                twttr.events.bind("rendered", (e) => {
+                    $(e.target).css("padding", "0");
+                    $(e.target.shadowRoot || e.target).contents().find(".EmbeddedTweet").css("max-width", "100%");
+                });
+            });
+        });
+    }, false);
 });
