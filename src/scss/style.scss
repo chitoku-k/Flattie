@@ -56,12 +56,6 @@ html, body {
     word-wrap: break-word;
     height: 100%;
 }
-#wrapper {
-    @include media-normal-pc {
-        position: relative;
-        min-height: 100%;
-    }
-}
 h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
 }
@@ -278,16 +272,17 @@ nav.navbar-default {
         padding: 0 8px 0 12px;
     }
 }
-#main-container {
-    @include media-normal-pc {
-        padding-bottom: 40px;
-    }
-}
 #main-cotaniner, #main-content-container {
     padding: 0;
 }
 #main-content-container {
     width: 70%;
+}
+#wrapper {
+    @include media-normal-pc {
+        position: relative;
+        min-height: calc(100% - 20px);
+    }
 }
 .main-content {
     border: 1px solid #dfdfdf;
@@ -743,10 +738,16 @@ footer {
     #header-container, nav.navbar-navy, #main-container {
         padding: 0;
     }
+    #main-container {
+        padding-bottom: 40px;
+    }
 }
 @include media-wide-pc {
     #header-container, nav.navbar-navy, #main-container {
         padding: 0 15px;
+    }
+    #main-container {
+        padding-bottom: 40px;
     }
 }
 @include media-tablet {
