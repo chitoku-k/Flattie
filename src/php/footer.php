@@ -1,7 +1,8 @@
-    <footer class="text-center">&copy; Chitoku 2014.</footer>
+        <footer class="text-center">&copy; Chitoku 2014.</footer>
+    </div>
 <?php
 wp_footer();
-if( !is_preview() ) {
+if ( ! is_preview() ) {
 ?>
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

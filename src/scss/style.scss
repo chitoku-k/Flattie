@@ -54,11 +54,12 @@ html, body {
     font-family: Arial, "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ Pro W3", "Kozuka Gothic Pro R", "小塚ゴシック Pro R", Meiryo, sans-serif;
     -ms-overflow-style: scrollbar;
     word-wrap: break-word;
-
+    height: 100%;
+}
+#wrapper {
     @include media-normal-pc {
         position: relative;
-        height: 0;
-        min-height: calc(100% - 10px);
+        min-height: 100%;
     }
 }
 h1, h2, h3, h4, h5, h6 {
