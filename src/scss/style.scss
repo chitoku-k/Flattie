@@ -54,6 +54,11 @@ html, body {
     font-family: Arial, "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ Pro W3", "Kozuka Gothic Pro R", "小塚ゴシック Pro R", Meiryo, sans-serif;
     -ms-overflow-style: scrollbar;
     word-wrap: break-word;
+
+    @include media-normal-pc {
+        position: relative;
+        height: calc(100% - 10px);
+    }
 }
 h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
@@ -271,6 +276,11 @@ nav.navbar-default {
         padding: 0 8px 0 12px;
     }
 }
+#main-container {
+    @include media-normal-pc {
+        padding-bottom: 40px;
+    }
+}
 #main-cotaniner, #main-content-container {
     padding: 0;
 }
@@ -436,6 +446,8 @@ nav.navbar-default {
 #sub-content-container {
     padding-right: 0;
     width: 30%;
+    position: sticky;
+    top: 15px;
     h2 {
         margin: 0 0 10px 0;
         font-size: 20px;
@@ -486,6 +498,11 @@ footer {
     padding: 8px 0;
     background: #44607b;
     color: white;
+    @include media-normal-pc {
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+    }
 }
 
 /* Page Indivisual Styles */
