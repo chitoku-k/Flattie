@@ -106,3 +106,10 @@ add_shortcode( 'index', function ( $atts ) {
             return "<ul>\n" . $list . '</ul>';
     }
 } );
+
+add_shortcode( 'menu', function ( $atts ) {
+    $atts = shortcode_atts( [
+        'name' => 'ヘッダーメニュー',
+    ], $atts );
+    wp_nav_menu( [ 'menu' => $atts['name'] ] );
+} );
