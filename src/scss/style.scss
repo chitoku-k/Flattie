@@ -2,27 +2,11 @@
 Theme Name: Flattie
 Description: Flat designed WordPress theme.
 Author: Chitoku
-Version: 2.0.0
+Version: 2.1.0
 */
 
 $fa-font-path: "./fonts";
 $image-path: './img/';
-$font-size-base: 0.875rem;
-$font-family-base:
-    // Safari for macOS and iOS
-    -apple-system,
-    // Chrome >= 56 for macOS, Windows, Linux and Android
-    system-ui,
-    // Chrome < 56 for macOS
-    BlinkMacSystemFont,
-    // Android
-    "Roboto",
-    // macOS
-    "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ Pro W3",
-    // Windows
-    "Segoe UI", Meiryo,
-    Arial, sans-serif;
-
 @import "font-awesome";
 @import "jquery.fancybox";
 @import "bootstrap";
@@ -36,6 +20,7 @@ $font-family-base:
 /* Basic */
 html, body {
     background: #efefef;
+    font-family: Arial, "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ Pro W3", "Kozuka Gothic Pro R", "小塚ゴシック Pro R", Meiryo, sans-serif;
     -ms-overflow-style: scrollbar;
     word-wrap: break-word;
     height: calc(100% - 10px);
@@ -109,7 +94,7 @@ nav.navbar-default, nav.navbar-navy {
 nav.navbar-navy {
     background-color: transparent;
     .nav, .dropdown-menu {
-        .nav-link {
+        > li > a {
             color: white;
             padding: 20px 30px;
             transition: background-color .3s;
@@ -179,13 +164,13 @@ nav.navbar-default {
     margin-right: 0;
     margin-top: 14px;
     input {
-        width: 250px;
-        padding-left: 35px;
-        margin-right: -12px;
+        width: 243px;
+        padding-left: 37px;
+        margin-right: -4px;
         border: none;
         border-radius: 17px;
-        -webkit-box-shadow: none;
         box-shadow: none;
+        -webkit-box-shadow: none;
     }
     .form-control:focus {
         border: none;
@@ -193,8 +178,8 @@ nav.navbar-default {
     #{&}-icon {
         color: #2f4255;
         position: relative;
-        left: -226px;
-        margin-top: -2px;
+        left: -229px;
+        margin-right: -13px;
     }
 }
 #nav-search-form {
@@ -341,7 +326,7 @@ nav.navbar-default {
     height: 24px;
     padding: 7px 31px 3px 15px;
     line-height: 1;
-    margin: 4px 4px 4px 0;
+    margin: 4px 4px 0 0;
     border-radius: 6px;
     color: white;
     text-align: center;

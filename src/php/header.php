@@ -13,7 +13,7 @@
 <body <?php body_class(); ?>>
     <div id="wrapper">
         <header id="header-container" class="container">
-            <div id="header-title">
+            <div id="header-title" class="pull-left">
                 <h1>
                     <a href="<?= get_home_url(); ?>">
                         <span id="header-title-text"><?= get_bloginfo( 'name' ); ?></span>
@@ -35,19 +35,17 @@
         </header>
         <div id="nav-container">
             <nav class="navbar navbar-navy container">
-                <div class="row">
 <?php
 wp_nav_menu( [
     'theme_location' => 'header-menu',
     'container' => '',
     'menu_class' => '',
-    'items_wrap' => '                    <ul class="nav mr-auto">' . "\n" . '%3$s' . "\n",
+    'items_wrap' => '                <ul class="nav navbar-nav">' . "\n" . '%3$s' . "\n",
     'walker' => new Flattie_Nav_Walker(),
 ] );
 ?>
-                        <li class="nav-icon"><a id="search-link" class="search-icon"><i class="fa fa-search"></i></a></li>
-                    </ul>
+                    <li class="nav-icon"><a id="search-link" class="search-icon"><i class="fa fa-search"></i></a></li>
+                </ul>
 <?php get_search_form(); ?>
-                </div>
             </nav>
         </div>

@@ -1,10 +1,10 @@
 {
   "name": "Flattie",
-  "version": "2.0.0",
+  "version": "1.1.0",
   "description": "Flat designed WordPress theme.",
   "main": "\"\"",
   "dependencies": {
-    "bootstrap": "^4.0.0-alpha.6",
+    "bootstrap-sass": "^3.3.7",
     "font-awesome": "^4.7.0",
     "jquery-fancybox": "^3.1.0"
   },

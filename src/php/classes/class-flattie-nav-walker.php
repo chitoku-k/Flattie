@@ -3,7 +3,7 @@ class Flattie_Nav_Walker extends Walker_Nav_Menu {
     public function start_el( &$output, $item, $depth = 0, $args = [], $id = 0 ) {
         global $post;
         global $wp_query;
-        $indent = '                    ' . ( $depth ? str_repeat( '    ' , $depth ) : '');
+        $indent = '        ' . ( ( $depth ) ? str_repeat( '  ' , $depth ) : '');
         if ( $depth > 0 ) {
             $indent .= str_repeat( '    ' , $depth );
         }
@@ -11,7 +11,6 @@ class Flattie_Nav_Walker extends Walker_Nav_Menu {
         $class_names = $value = '';
 
         $classes = empty( $item->classes ) ? [] : (array) $item->classes;
-        $classes[] = 'nav-item';
         $classes[] = $args->has_children ? 'dropdown' : '';
 
         if ( $item->current || $item->current_item_ancestor || $item->current_item_parent ) {
@@ -36,7 +35,7 @@ class Flattie_Nav_Walker extends Walker_Nav_Menu {
         $class_names = implode( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
         $class_names = ' class="' . esc_attr( $class_names ) . '"';
 
-        $output .= $indent . '    <li id="menu-item-' . $item->ID . '"' . $value . $class_names .'>';
+        $output .= $indent . '  <li id="menu-item-' . $item->ID . '"' . $value . $class_names .'>';
 
         $attributes[] = ! empty( $item->attr_title ) ? 'title="' . esc_attr( $item->attr_title ) .'"' : '';
         $attributes[] = ! empty( $item->target )  ? 'target="' . esc_attr( $item->target ) .'"' : '';
@@ -44,9 +43,7 @@ class Flattie_Nav_Walker extends Walker_Nav_Menu {
         $attributes[] = ! empty( $item->url ) ? 'href="' . esc_attr( $item->url ) .'"' : '';
 
         if ( $args->has_children ) {
-            $attributes[] = 'class="nav-link dropdown-toggle"';
-        } else {
-            $attributes[] = 'class="nav-link"';
+            $attributes[] = 'class="dropdown-toggle"';
         }
 
         $item_output = $args->before;
@@ -72,7 +69,7 @@ class Flattie_Nav_Walker extends Walker_Nav_Menu {
     public function display_element( $element, &$children_elements, $max_depth, $depth = 0, $args, &$output ) {
         $id_field = $this->db_fields['id'];
         if ( is_object( $args[0] ) ) {
-            $args[0]->has_children = ! empty( $children_elements[ $element->$id_field ] );
+            $args[0]->has_children = ! empty( $children_elements[$element->$id_field] );
         }
         return parent::display_element( $element, $children_elements, $max_depth, $depth, $args, $output );
     }

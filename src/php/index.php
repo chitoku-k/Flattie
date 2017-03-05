@@ -1,12 +1,14 @@
 <?php get_header(); ?>
 <div id="main-container" class="container">
-    <div class="row">
-        <div id="main-content-container" class="col-sm-9"<?= is_search() ? ' style="width: 100%;"' : '' ?>>
-<?php
+    <div id="main-content-container" class="col-sm-9"<?php
+if ( is_search() ) {
+    echo ' style="width: 100%;"';
+}
+echo '>';
 get_template_part( 'loop' );
 get_template_part( 'share-buttons' );
 ?>
-        </div>
+    </div>
 <?php
 if ( !is_search() ) {
     get_sidebar();

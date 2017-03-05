@@ -1,5 +1,5 @@
+        <footer class="text-center">&copy; Chitoku 2014.</footer>
     </div>
-    <footer class="text-center">&copy; Chitoku 2014.</footer>
 <?php
 wp_footer();
 if ( ! is_preview() ) {

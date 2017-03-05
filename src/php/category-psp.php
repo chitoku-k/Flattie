@@ -1,16 +1,15 @@
 <?php get_header(); ?>
 <div id="main-container" class="container">
-    <div class="row">
-        <div id="main-content-container" class="col-sm-9">
-            <article class="main-content">
-                <nav id="sub-nav" class="navbar navbar-default">
-                    <ul class="nav navbar-nav">
-                        <li class="col-sm-6"><a href="/programming/">プログラミング</a></li>
-                        <li class="active col-sm-6"><a href="/programming/psp">PSP プログラミング</a></li>
-                    </ul>
-                </nav>
-            </article>
-            <article class="main-content">
+    <div id="main-content-container" class="col-sm-9">
+        <article class="main-content">
+            <nav id="sub-nav" class="navbar navbar-default">
+                <ul class="nav navbar-nav">
+                    <li class="col-sm-6"><a href="/programming/">プログラミング</a></li>
+                    <li class="active col-sm-6"><a href="/programming/psp">PSP プログラミング</a></li>
+                </ul>
+            </nav>
+        </article>
+        <article class="main-content">
 <?php
 function show_posts_list( $posts ) {
     global $post;
@@ -24,24 +23,24 @@ function show_posts_list( $posts ) {
 }
 ?>
 
-                <div class="main-content-header">
-                    <h1>PSP プログラミング</h1>
-                    <p></p>
-                </div>
-                <div class="alert alert-info text-center" style="border-radius: 0;">現在記事の移行作業中です。
-                    <a href="http://chitoku.symphonic-net.com/pspprograming/">移転元のページ</a> もあわせてご覧ください。
-                </div>
-                <h2 style="margin-top: 0;">目次</h2>
-                <ul>
+            <div class="main-content-header">
+                <h1>PSP プログラミング</h1>
+                <p></p>
+            </div>
+            <div class="alert alert-info text-center" style="border-radius: 0;">現在記事の移行作業中です。
+                <a href="http://chitoku.symphonic-net.com/pspprograming/">移転元のページ</a> もあわせてご覧ください。
+            </div>
+            <h2 style="margin-top: 0;">目次</h2>
+            <ul>
     <?php
 show_posts_list( get_posts( [
     'cat' => get_query_var( 'cat' ),
     'order' => 'ASC',
 ] ) );
 ?>
-                </ul>
-                <h2>資料</h2>
-                <ul>
+            </ul>
+            <h2>資料</h2>
+            <ul>
 <?php
 show_posts_list( get_posts( [
     'post_type' => 'page',
@@ -50,11 +49,10 @@ show_posts_list( get_posts( [
     'orderby' => 'menu_order',
 ] ) );
 ?>
-                </ul>
-            </article>
+            </ul>
+        </article>
 <?php get_template_part( 'share-buttons' ); ?>
-        </div>
-<?php get_sidebar(); ?>
     </div>
+<?php get_sidebar(); ?>
 </div>
 <?php get_footer(); ?>

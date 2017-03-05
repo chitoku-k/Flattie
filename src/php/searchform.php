@@ -4,7 +4,7 @@
     </form>
     <div style="display: table-cell;"><span id="search-cancel-link">キャンセル</span></div>
 </div>
-<form id="search-form" class="form-inline" role="search" method="get" action="<?= home_url('/'); ?>">
+<form id="search-form" class="navbar-form navbar-right clearfix" role="search" method="get" action="<?= home_url('/'); ?>">
     <input type="search" id="search-box" name="s" placeholder="検索" value="<?= get_search_query() ?>" class="form-control">
     <i id="search-form-icon" class="fa fa-search"></i>
 </form>

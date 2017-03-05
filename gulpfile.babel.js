@@ -23,7 +23,7 @@ gulp.task("sass", () =>
             indentWidth: 4,
             outputStyle: "expanded",
             includePaths: [
-                "./node_modules/bootstrap/scss",
+                "./node_modules/bootstrap-sass/assets/stylesheets",
                 "./node_modules/font-awesome/scss",
                 "./node_modules/jquery-fancybox/source/scss",
             ],
@@ -63,7 +63,7 @@ gulp.task("editor_css", () =>
 );
 
 gulp.task("fonts", () =>
-    gulp.src("./node_modules/font-awesome/fonts/*")
+    gulp.src("./node_modules/**/fonts/*")
         .pipe($.flatten())
         .pipe(gulp.dest(`${DIST}/fonts/`))
 );
