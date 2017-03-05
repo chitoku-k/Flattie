@@ -7,7 +7,22 @@ Version: 2.0.0
 
 $fa-font-path: "./fonts";
 $image-path: './img/';
-$font-size-root: 14px;
+$font-size-base: 14px;
+$font-family-base:
+    // Safari for macOS and iOS
+    -apple-system,
+    // Chrome >= 56 for macOS, Windows, Linux and Android
+    system-ui,
+    // Chrome < 56 for macOS
+    BlinkMacSystemFont,
+    // Android
+    "Roboto",
+    // macOS
+    "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ Pro W3",
+    // Windows
+    "Segoe UI", Meiryo,
+    Arial, sans-serif;
+
 @import "font-awesome";
 @import "jquery.fancybox";
 @import "bootstrap";
@@ -21,7 +36,6 @@ $font-size-root: 14px;
 /* Basic */
 html, body {
     background: #efefef;
-    font-family: Arial, "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ Pro W3", "Kozuka Gothic Pro R", "小塚ゴシック Pro R", Meiryo, sans-serif;
     -ms-overflow-style: scrollbar;
     word-wrap: break-word;
     height: calc(100% - 10px);
