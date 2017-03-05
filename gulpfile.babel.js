@@ -52,11 +52,6 @@ gulp.task("assets", () =>
         ))
 );
 
-gulp.task("images", () =>
-    gulp.src(["./img/**", "!/**/Thumbs.db"])
-        .pipe(gulp.dest(`${DIST}/img/`))
-);
-
 gulp.task("editor_css", () =>
     gulp.src("./dev/css/editor.css")
         .pipe(gulp.dest(`${DIST}/`))
@@ -76,6 +71,6 @@ gulp.task("fancybox", () =>
 gulp.task("default",
     gulp.series(
         gulp.parallel("build", "sass"),
-        gulp.parallel("assets", "fancybox", "images", "fonts", "editor_css")
+        gulp.parallel("assets", "fancybox", "fonts", "editor_css")
     )
 );
