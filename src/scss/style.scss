@@ -2,13 +2,13 @@
 Theme Name: Flattie
 Description: Flat designed WordPress theme.
 Author: Chitoku
-Version: 1.1.0
+Version: 2.0.0
 */
 
 $fa-font-path: "./fonts";
 $image-path: './img/';
-@import "../../node_modules/font-awesome/scss/font-awesome";
-@import "../../node_modules/jquery-fancybox/source/scss/jquery.fancybox.scss";
+@import "font-awesome";
+@import "jquery.fancybox";
 @import "bootstrap-custom";
 
 @mixin media-of($base, $width) {
