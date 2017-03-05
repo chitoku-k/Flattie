@@ -94,7 +94,7 @@ nav.navbar-default, nav.navbar-navy {
 nav.navbar-navy {
     background-color: transparent;
     .nav, .dropdown-menu {
-        > li > a {
+        .nav-link {
             color: white;
             padding: 20px 30px;
             transition: background-color .3s;
