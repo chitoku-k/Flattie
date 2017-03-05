@@ -4,11 +4,11 @@ Description: Flat designed WordPress theme.
 Author: Chitoku
 Version: 2.1.0
 */
+@import "variables";
 @import "font-awesome";
 @import "jquery.fancybox";
 @import "bootstrap-custom";
 
-@import "variables";
 @import "mixin";
 @import "crayon";
 @import "fancybox";
