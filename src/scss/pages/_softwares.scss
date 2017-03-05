@@ -1,0 +1,9 @@
+.main-content {
+    &.page-softwares {
+        p {
+            @include media-small-pc {
+                margin-left: 60px;
+            }
+        }
+    }
+}

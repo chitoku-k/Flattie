@@ -1,0 +1,36 @@
+@mixin media-of($base, $width) {
+    @media screen and (#{$base}: $width) {
+        @content;
+    }
+}
+@mixin media-sp {
+    @include media-of(max-width, 480px) {
+        @content;
+    }
+}
+@mixin media-tablet {
+    @include media-of(max-width, 767px) {
+        @content;
+    }
+}
+@mixin media-small-pc {
+    @include media-of(min-width, 768px) {
+        @content;
+    }
+}
+@mixin media-normal-pc {
+    @include media-of(min-width, 896px) {
+        @content;
+    }
+}
+@mixin media-wide-pc {
+    @include media-of(max-width, 992px) {
+        @content;
+    }
+}
+@mixin hover($color, $hover) {
+    background-color: $color;
+    &:hover {
+        background-color: $hover;
+    }
+}

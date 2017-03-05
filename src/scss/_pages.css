@@ -1,0 +1,30 @@
+@import "pages/_about";
+@import "pages/_home";
+@import "pages/_mail";
+@import "pages/_soarer";
+@import "pages/_softwares";
+
+.main-content {
+    &.page-softwares, &.page-programming, &.page-others {
+        a {
+            color: #333333;
+        }
+        img {
+            margin-right: 6px;
+            @include media-small-pc {
+                margin-right: 12px;
+            }
+        }
+        p {
+            padding-top: 6px;
+            @include media-small-pc {
+                margin-left: 54px;
+            }
+        }
+        h2 {
+            @include media-tablet {
+                margin-top: -15px;
+            }
+        }
+    }
+}
