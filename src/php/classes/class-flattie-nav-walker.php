@@ -3,7 +3,7 @@ class Flattie_Nav_Walker extends Walker_Nav_Menu {
     public function start_el( &$output, $item, $depth = 0, $args = [], $id = 0 ) {
         global $post;
         global $wp_query;
-        $indent = '                        ' . ( ( $depth ) ? str_repeat( '  ' , $depth ) : '');
+        $indent = '                    ' . ( $depth ? str_repeat( '    ' , $depth ) : '');
         if ( $depth > 0 ) {
             $indent .= str_repeat( '    ' , $depth );
         }
