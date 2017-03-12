@@ -34,14 +34,14 @@ jQuery($ => {
         $(this).parents(".dropdown").addClass("active");
     });
 
-    window.addEventListener("load", () => {
-        $.getScript(WIDGET_URL).done(() => {
-            twttr.ready(() => {
-                twttr.events.bind("rendered", (e) => {
-                    $(e.target).css("padding", "0");
-                    $(e.target.shadowRoot || e.target).contents().find(".EmbeddedTweet").css("max-width", "100%");
-                });
+    $("[data-gist]").gist();
+
+    $.getScript(WIDGET_URL).then(() => {
+        twttr.ready(() => {
+            twttr.events.bind("rendered", (e) => {
+                $(e.target).css("padding", "0");
+                $(e.target.shadowRoot || e.target).contents().find(".EmbeddedTweet").css("max-width", "100%");
             });
         });
-    }, false);
+    });
 });
