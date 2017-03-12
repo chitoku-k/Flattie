@@ -100,7 +100,7 @@ nav.navbar-navy {
                 background-color: #34495e;
             }
             @include media-wide-pc {
-                padding: 20px 12px;
+                padding: 20px 24px;
             }
             @include media-tablet {
                 padding: 12px;
@@ -402,6 +402,9 @@ nav.navbar-default {
     ul {
         padding-left: 30px;
         margin-bottom: 0;
+        @include media-small-pc {
+            padding-left: 20px;
+        }
         li {
             margin-bottom: 3px;
         }
