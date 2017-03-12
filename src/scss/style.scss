@@ -373,8 +373,11 @@ nav.navbar-default {
 #sub-content-container {
     padding-right: 0;
     width: 30%;
-    position: sticky;
     top: 15px;
+    position: static;
+    &.sticky {
+        position: sticky;
+    }
     h2 {
         margin: 0 0 10px 0;
         font-size: 20px;

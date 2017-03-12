@@ -59,6 +59,7 @@
             background-size: cover;
             width: 175px;
             height: 175px;
+            margin: 0 auto;
             @include media-sp {
                 float: left;
                 width: 44px;
