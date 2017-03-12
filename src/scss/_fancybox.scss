@@ -2,9 +2,5 @@
     overflow: hidden !important;
 }
 .fancybox-image {
-    image-rendering: -webkit-optimize-contrast;
-    image-rendering: -moz-crisp-edges;
-    image-rendering: -o-crisp-edges;
-    image-rendering: crisp-edges;
     image-rendering: pixelated;
 }

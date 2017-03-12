@@ -167,7 +167,6 @@ nav.navbar-default {
         border: none;
         border-radius: 17px;
         box-shadow: none;
-        -webkit-box-shadow: none;
     }
     .form-control:focus {
         border: none;
@@ -330,8 +329,6 @@ nav.navbar-default {
     transition: background-color .3s;
     &, i {
         box-sizing: content-box;
-        -moz-box-sizing: content-box;
-        -webkit-box-sizing: content-box;
         &:hover, &:active, &:focus {
             color: white;
         }

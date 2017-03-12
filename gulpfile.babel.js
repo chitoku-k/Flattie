@@ -28,6 +28,7 @@ gulp.task("sass", () =>
                 "./node_modules/jquery-fancybox/source/scss",
             ],
         }))
+        .pipe($.autoprefixer({ browsers: ["last 2 version"] }))
         .pipe(gulp.dest("./dev/css"))
 );
 
