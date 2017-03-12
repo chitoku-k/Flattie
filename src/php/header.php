@@ -9,6 +9,11 @@
     <link rel="stylesheet" type="text/css" href="../../dev/css/style.css">
     <!-- endbuild -->
     <?php wp_head(); ?>
+    <!-- build:js ../../dest/js/script.min.js defer -->
+    <script src="../../dev/js/script.js"></script>
+    <script src="../../node_modules/jquery-fancybox/source/js/jquery.fancybox.js"></script>
+    <script src="../../node_modules/async-gist/gist.js"></script>
+    <!-- endbuild -->
 </head>
 <body <?php body_class(); ?>>
     <div id="wrapper">

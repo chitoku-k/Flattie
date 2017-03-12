@@ -16,9 +16,5 @@ if ( ! is_preview() ) {
 <?php
 }
 ?>
-    <!-- build:js ../../dest/js/script.min.js -->
-    <script type="text/javascript" src="../../dev/js/script.js"></script>
-    <script type="text/javascript" src="../../node_modules/jquery-fancybox/source/js/jquery.fancybox.js"></script>
-    <!-- endbuild -->
 </body>
 </html>

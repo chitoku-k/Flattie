@@ -4,6 +4,7 @@
   "description": "Flat designed WordPress theme.",
   "main": "\"\"",
   "dependencies": {
+    "async-gist": "^1.0.1",
     "bootstrap-sass": "^3.3.7",
     "font-awesome": "^4.7.0",
     "jquery-fancybox": "^3.1.0"
