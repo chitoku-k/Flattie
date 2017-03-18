@@ -26,10 +26,6 @@ register_sidebar( [
     'after_widget' => '</div>',
 ] );
 
-if ( ! is_admin() ) {
-    wp_deregister_script( 'jquery' );
-}
-
 /**
  * Actions
  */
