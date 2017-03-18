@@ -1,3 +1,6 @@
+require("jquery-fancybox");
+require("async-gist");
+
 jQuery($ => {
     const WIDGET_URL = "https://platform.twitter.com/widgets.js";
     const $navbar = $("#nav-container>nav>ul");

@@ -1,23 +1,25 @@
 import gulp from "gulp";
 import del from "del";
-import lazypipe from "lazypipe";
+import browserify from "browserify";
+import babelify from "babelify";
+import source from "vinyl-source-stream";
 
 const $ = require("gulp-load-plugins")();
 const DIST  = process.env.FLATTIE_DIST || "./dist/";
-const WP_CSS = "<?= get_stylesheet_uri(); ?>";
-const WP_DIR = "<?= get_template_directory_uri(); ?>";
 
 gulp.task("clean", () =>
-    del(["./dist/**/*"])
+    del(["./dist/**"])
 );
 
-gulp.task("build", () =>
-    gulp.src("./src/js/*.js")
-        .pipe($.babel())
+gulp.task("build:js", () =>
+    browserify({ entries: ["./src/js/script.js"] })
+        .transform(babelify)
+        .bundle()
+        .pipe(source("script.js"))
         .pipe(gulp.dest("./dev/js"))
 );
 
-gulp.task("sass", () =>
+gulp.task("build:css", () =>
     gulp.src("./src/scss/*.scss")
         .pipe($.sass({
             indentWidth: 4,
@@ -32,51 +34,36 @@ gulp.task("sass", () =>
         .pipe(gulp.dest("./dev/css"))
 );
 
-gulp.task("assets", () =>
-    gulp.src("./src/php/**/*")
-        .pipe($.useref())
-        .pipe($.if(
-            "*.js",
-            lazypipe()
-                .pipe($.uglify, { preserveComments: "some" })
-                .pipe($.flatten)
-                .pipe(gulp.dest, `${DIST}/js`)()
-        ))
-        .pipe($.if(
-            "*.css",
-            lazypipe()
-                .pipe($.csso)
-                .pipe($.flatten)
-                .pipe(gulp.dest, `${DIST}/`)()
-        ))
-        .pipe($.if(
-            "*.php",
-            lazypipe()
-                .pipe($.replace, /href=(.)\.\.\/\.\.\/dest\/.*\.css/g, `href=$1${WP_CSS}`)
-                .pipe($.replace, /src=(.)\.\.\/\.\.\/dest/g, `src=$1${WP_DIR}`)
-                .pipe(gulp.dest, `${DIST}/`)()
-        ))
-);
-
-gulp.task("editor_css", () =>
-    gulp.src("./dev/css/editor.css")
+gulp.task("minify:css", () =>
+    gulp.src("./dev/css/*.css")
+        .pipe($.csso())
         .pipe(gulp.dest(`${DIST}/`))
 );
 
-gulp.task("fonts", () =>
-    gulp.src("./node_modules/**/fonts/*")
-        .pipe($.flatten())
-        .pipe(gulp.dest(`${DIST}/fonts/`))
+gulp.task("minify:js", () =>
+    gulp.src("./dev/js/*.js")
+        .pipe($.uglify({ preserveComments: "some" }))
+        .pipe(gulp.dest(`${DIST}/js`))
 );
 
-gulp.task("fancybox", () =>
+gulp.task("theme", () =>
+    gulp.src("./src/php/**/*")
+        .pipe(gulp.dest(`${DIST}/`))
+);
+
+gulp.task("assets:img", () =>
     gulp.src("./node_modules/jquery-fancybox/source/img/*")
         .pipe(gulp.dest(`${DIST}/img/`))
 );
 
+gulp.task("assets:fonts", () =>
+    gulp.src("./node_modules/font-awesome/fonts/*")
+        .pipe(gulp.dest(`${DIST}/fonts/`))
+);
+
 gulp.task("default",
     gulp.series(
-        gulp.parallel("build", "sass"),
-        gulp.parallel("assets", "fancybox", "fonts", "editor_css")
+        gulp.parallel("build:js", "build:css", "theme", "assets:img", "assets:fonts"),
+        gulp.parallel("minify:js", "minify:css")
     )
 );

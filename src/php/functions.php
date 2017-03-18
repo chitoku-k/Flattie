@@ -16,7 +16,7 @@ function is_uncategorized() {
  * Initialization
  */
 add_editor_style( 'editor.css' );
-register_nav_menu( 'header-menu' , 'ヘッダーメニュー' );
+register_nav_menu( 'header-menu', 'ヘッダーメニュー' );
 
 register_sidebar( [
     'name' => 'サイドバーウィジット',
@@ -25,6 +25,10 @@ register_sidebar( [
     'before_widget' => '<div id="%1$s" class="%2$s">',
     'after_widget' => '</div>',
 ] );
+
+if ( ! is_admin() ) {
+    wp_deregister_script( 'jquery' );
+}
 
 /**
  * Actions

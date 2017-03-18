@@ -5,15 +5,9 @@
     <meta name="viewport" content="initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <title><?php get_template_part( 'title' ); ?></title>
-    <!-- build:css ../../dest/css/style.css -->
-    <link rel="stylesheet" type="text/css" href="../../dev/css/style.css">
-    <!-- endbuild -->
+    <link rel="stylesheet" type="text/css" href="<?= get_stylesheet_uri(); ?>">
+    <script defer src="<?= get_template_directory_uri(); ?>/js/script.js"></script>
     <?php wp_head(); ?>
-    <!-- build:js ../../dest/js/script.min.js defer -->
-    <script src="../../dev/js/script.js"></script>
-    <script src="../../node_modules/jquery-fancybox/source/js/jquery.fancybox.js"></script>
-    <script src="../../node_modules/async-gist/gist.js"></script>
-    <!-- endbuild -->
 </head>
 <body <?php body_class(); ?>>
     <div id="wrapper">
