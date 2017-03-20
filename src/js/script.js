@@ -37,14 +37,14 @@ jQuery($ => {
         $(this).parents(".dropdown").addClass("active");
     });
 
-    $("[data-gist]").gist();
+    $("[data-gist]").gist({
+        timeout: 5000,
+    });
 
     $.getScript(WIDGET_URL).then(() => {
-        twttr.ready(() => {
-            twttr.events.bind("rendered", (e) => {
-                $(e.target).css("padding", "0");
-                $(e.target.shadowRoot || e.target).contents().find(".EmbeddedTweet").css("max-width", "100%");
-            });
+        twttr.events.bind("rendered", (e) => {
+            $(e.target).css("padding", "0");
+            $(e.target.shadowRoot || e.target).contents().find(".EmbeddedTweet").css("max-width", "100%");
         });
     });
 });
