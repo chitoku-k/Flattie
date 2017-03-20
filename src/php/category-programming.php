@@ -15,7 +15,6 @@ query_posts( [
     'paged' => get_query_var( 'paged' ),
 ] );
 get_template_part( 'loop' );
-get_template_part( 'share-buttons' );
 ?>
     </div>
 <?php get_sidebar(); ?>

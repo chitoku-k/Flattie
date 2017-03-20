@@ -49,7 +49,6 @@
             </div>
             <div class="clearfix"></div>
         </article>
-<?php get_template_part( 'share-buttons' ); ?>
     </div>
 <?php get_sidebar(); ?>
 </div>

@@ -22,7 +22,7 @@ while ( have_posts() ) {
             echo implode( ' &gt; ', array_reverse( $parent_posts ) );
         }
     } else {
-        if ( !is_uncategorized() ) {
+        if ( ! is_uncategorized() ) {
 ?>
                 <i class="fa fa-folder-open-o"></i>
 <?php
