@@ -3,14 +3,12 @@ $image-path: './img/';
 $font-family-base:
     // Safari for macOS and iOS
     -apple-system,
-    // Chrome >= 56 for macOS, Windows, Linux and Android
-    system-ui,
-    // Chrome < 56 for macOS
+    // Chrome for macOS
     BlinkMacSystemFont,
     // Android
-    "Roboto",
+    Roboto,
+    // Windows
+    Verdana, Meiryo,
     // macOS
     "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ Pro W3",
-    // Windows
-    "Segoe UI", Meiryo,
-    Arial, sans-serif;
+    sans-serif;
