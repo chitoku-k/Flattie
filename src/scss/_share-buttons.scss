@@ -1,0 +1,51 @@
+.share-button {
+    display: inline-block;
+    width: 0;
+    height: 24px;
+    line-height: 1;
+    margin: 4px 4px 4px 0;
+    border-radius: 6px;
+    color: white;
+    text-align: center;
+    transition: background-color .3s;
+    &, i {
+        box-sizing: content-box;
+        &:hover, &:active, &:focus {
+            color: white;
+        }
+    }
+    i {
+        font-size: 20px;
+        vertical-align: middle;
+    }
+    &.twitter-icon {
+        padding: 7px 29px 3px 13px;
+        @include hover(#00b0ed, #009cd9);
+    }
+    &.facebook-icon {
+        padding: 7px 27px 3px 15px;
+        @include hover(#315096, #1d3c82);
+    }
+    &.google-plus-icon {
+        @include hover(#dd4b39, #c93725);
+        padding: 7px 33px 3px 7px;
+        vertical-align: 0;
+    }
+    &.hatena-icon {
+        @include hover(#008fde, #007bca);
+        padding: 5px 32px 5px 10px;
+        vertical-align: 2px;
+    }
+    &.tumblr-icon {
+        @include hover(#35465c, #213248);
+        padding: 8px 27px 2px 15px;
+        vertical-align: -1px;
+    }
+}
+.fa-hatena:before {
+    content: "B!";
+    font-family: Verdana;
+    font-weight: bold;
+    word-wrap: initial;
+    vertical-align: -2px;
+}
