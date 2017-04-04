@@ -8,6 +8,7 @@
     color: white;
     text-align: center;
     transition: background-color .3s;
+
     &, i {
         box-sizing: content-box;
         &:hover, &:active, &:focus {
@@ -18,28 +19,66 @@
         font-size: 20px;
         vertical-align: middle;
     }
-    &.twitter-icon {
-        padding: 7px 29px 3px 13px;
-        @include hover(#00b0ed, #009cd9);
-    }
-    &.facebook-icon {
-        padding: 7px 27px 3px 15px;
-        @include hover(#315096, #1d3c82);
-    }
-    &.google-plus-icon {
-        @include hover(#dd4b39, #c93725);
-        padding: 7px 33px 3px 7px;
-        vertical-align: 0;
-    }
-    &.hatena-icon {
-        @include hover(#008fde, #007bca);
-        padding: 5px 32px 5px 10px;
-        vertical-align: 2px;
-    }
-    &.tumblr-icon {
-        @include hover(#35465c, #213248);
-        padding: 8px 27px 2px 15px;
-        vertical-align: -1px;
+
+    $services: (
+        twitter: (
+            hover: (#00b0ed, #009cd9),
+            style: (
+                padding: 7px 31px 3px 15px,
+            ),
+        ),
+        facebook: (
+            hover: (#315096, #1d3c82),
+            style: (
+                padding: 7px 29px 3px 17px,
+            ),
+        ),
+        google-plus: (
+            hover: (#dd4b39, #c93725),
+            style: (
+                padding: 7px 35px 3px 9px,
+                vertical-align: 0,
+            ),
+        ),
+        hatena: (
+            hover: (#008fde, #007bca),
+            style: (
+                padding: 5px 34px 5px 12px,
+                vertical-align: 2px,
+            ),
+        ),
+        tumblr: (
+            hover: (#35465c, #213248),
+            style: (
+                padding: 8px 29px 2px 17px,
+                vertical-align: -1px,
+            ),
+        ),
+    );
+
+    @each $service, $styles in $services {
+        $hover: map-get($styles, hover);
+        $style: map-get($styles, style);
+        $padding: map-get($style, padding);
+
+        &.#{$service}-icon {
+            // Set background-color
+            @include hover($hover...);
+
+            // Smaller share buttons
+            @include media-small-pc {
+                padding:
+                    nth($padding, 1)
+                    nth($padding, 2) - 3
+                    nth($padding, 3)
+                    nth($padding, 4) - 3
+            }
+
+            // Apply other styles
+            @each $prop, $value in $style {
+                #{$prop}: $value;
+            }
+        }
     }
 }
 .fa-hatena:before {
