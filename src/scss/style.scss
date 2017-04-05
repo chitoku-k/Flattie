@@ -405,14 +405,6 @@ footer {
         padding-bottom: 60px;
     }
 }
-@include media-wide-pc {
-    #header-container, nav.navbar-navy, #main-container {
-        padding: 0 15px;
-    }
-    #main-container {
-        padding-bottom: 60px;
-    }
-}
 @include media-tablet {
     #header-container {
         margin: 8px 10px 16px;
