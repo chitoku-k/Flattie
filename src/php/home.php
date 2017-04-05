@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <div id="main-container" class="container">
-    <div id="main-content-container" class="col-sm-9">
+    <div id="main-content-container" class="col-md-9">
         <article class="main-content">
             <div class="home-menu-link col-xs-6 col-md-4">
                 <a href="<?= get_home_url();?>/programming/psp/" id="pspprogramming-link" class="home-menu-link-image" title="PSP プログラミング">
