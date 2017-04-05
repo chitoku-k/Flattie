@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <div id="main-container" class="container">
-    <div id="main-content-container" class="col-sm-9">
+    <div id="main-content-container" class="col-md-9">
         <article class="main-content">
             <nav id="sub-nav" class="navbar navbar-default">
                 <ul class="nav navbar-nav">
