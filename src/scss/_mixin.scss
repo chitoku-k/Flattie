@@ -4,12 +4,12 @@
     }
 }
 @mixin media-sp {
-    @include media-of(max-width, 480px) {
+    @include media-of(max-width, 479px) {
         @content;
     }
 }
 @mixin media-tablet {
-    @include media-of(max-width, 768px) {
+    @include media-of(max-width, 767px) {
         @content;
     }
 }
@@ -24,7 +24,7 @@
     }
 }
 @mixin media-wide-pc {
-    @include media-of(min-width, 1024px) {
+    @include media-of(min-width, 1025px) {
         @content;
     }
 }
