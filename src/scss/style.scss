@@ -75,7 +75,7 @@ nav.navbar-default, nav.navbar-navy {
     padding: 0;
     border-radius: 0;
     border: none;
-    @include media-tablet {
+    @include media-sp {
         .nav {
             margin: 0;
             > li {
@@ -103,7 +103,7 @@ nav.navbar-navy {
             @include media-wide-pc {
                 padding: 20px 24px;
             }
-            @include media-tablet {
+            @include media-sp {
                 padding: 12px;
             }
         }
