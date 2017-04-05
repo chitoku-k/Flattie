@@ -181,6 +181,11 @@ nav.navbar-default {
         left: -229px;
         margin-right: -13px;
     }
+    @include media-sp {
+        #search-form {
+            display: none;
+        }
+    }
 }
 #nav-search-form {
     display: none;
@@ -430,9 +435,6 @@ footer {
         white-space: nowrap;
         overflow-x: auto;
         margin-bottom: 0;
-    }
-    #search-form {
-        display: none;
     }
     #main-content-container {
         padding: 0;
