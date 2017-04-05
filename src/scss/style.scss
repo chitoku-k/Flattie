@@ -47,6 +47,9 @@ input, button {
         vertical-align: middle;
         margin-left: 4px;
     }
+    @include media-sp {
+        margin: 8px 10px 16px;
+    }
 }
 #header-title {
     h1, svg {
@@ -117,7 +120,7 @@ nav.navbar-navy {
         }
         li.nav-icon {
             display: none;
-            @include media-tablet {
+            @include media-sp {
                 display: table-cell;
             }
         }
@@ -408,9 +411,6 @@ footer {
     }
 }
 @include media-tablet {
-    #header-container {
-        margin: 8px 10px 16px;
-    }
     #header-title {
         h1 {
             height: 32px;
