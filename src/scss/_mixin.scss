@@ -19,7 +19,7 @@
     }
 }
 @mixin media-normal-pc {
-    @include media-of(max-width, 992px) {
+    @include media-of(max-width, 1024px) {
         @content;
     }
 }
