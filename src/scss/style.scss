@@ -398,17 +398,11 @@ footer {
     #nav-container {
         margin-bottom: 24px;
     }
-    #header-container, nav.navbar-navy, #main-container {
-        padding: 0;
-    }
     #main-container {
         padding-bottom: 60px;
     }
 }
 @include media-wide-pc {
-    #header-container, nav.navbar-navy, #main-container {
-        padding: 0 15px;
-    }
     #main-container {
         padding-bottom: 60px;
     }
