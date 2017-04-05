@@ -9,22 +9,22 @@
     }
 }
 @mixin media-tablet {
-    @include media-of(max-width, 767px) {
+    @include media-of(max-width, 768px) {
         @content;
     }
 }
 @mixin media-small-pc {
-    @include media-of(min-width, 768px) {
+    @include media-of(max-width, 896px) {
         @content;
     }
 }
 @mixin media-normal-pc {
-    @include media-of(min-width, 896px) {
+    @include media-of(max-width, 992px) {
         @content;
     }
 }
 @mixin media-wide-pc {
-    @include media-of(max-width, 992px) {
+    @include media-of(min-width, 1024px) {
         @content;
     }
 }
