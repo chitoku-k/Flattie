@@ -182,7 +182,7 @@ nav.navbar-default {
         margin-right: -13px;
     }
     @include media-sp {
-        #search-form {
+        & {
             display: none;
         }
     }
@@ -190,7 +190,7 @@ nav.navbar-default {
 #nav-search-form {
     display: none;
     height: 44px;
-    padding: 8px 2px;
+    padding: 8px 10px 8px 15px;
     div {
         text-align: center;
     }
