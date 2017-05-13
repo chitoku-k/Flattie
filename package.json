@@ -29,7 +29,7 @@
     "browserify-shim": "^3.8.14",
     "del": "^2.2.2",
     "gulp": "github:gulpjs/gulp#4.0",
-    "gulp-autoprefixer": "^3.1.1",
+    "gulp-autoprefixer": "^4.0.0",
     "gulp-csso": "^3.0.0",
     "gulp-load-plugins": "^1.5.0",
     "gulp-sass": "^3.1.0",
