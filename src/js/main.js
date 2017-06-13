@@ -1,6 +1,7 @@
 import $ from "jquery";
 import "jquery-fancybox";
 import "async-gist";
+import "babel-polyfill";
 import "../scss/style.scss";
 
 $(async () => {
