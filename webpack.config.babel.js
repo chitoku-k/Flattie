@@ -78,6 +78,9 @@ module.exports = {
             "jquery-fancybox": "jquery-fancybox/source/js/jquery.fancybox",
         },
     },
+    externals: {
+        "jquery": "jQuery",
+    },
     plugins: [
         new webpack.optimize.UglifyJsPlugin(),
         new ExtractTextWebpackPlugin({
