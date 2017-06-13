@@ -1,9 +1,11 @@
-require("jquery-fancybox");
-require("async-gist");
+import $ from "jquery";
+import "jquery-fancybox";
+import "async-gist";
+import "../scss/style.scss";
 
-jQuery($ => {
+$(() => {
     const WIDGET_URL = "https://platform.twitter.com/widgets.js";
-    const $navbar = $("#nav-container>nav>ul");
+    const $navbar = $("#nav-container > nav > ul");
     const $navSearchForm = $("#nav-search-form");
     const $navSearchInput = $("#nav-search-form input");
 

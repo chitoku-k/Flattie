@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge">
     <title><?php get_template_part( 'title' ); ?></title>
     <link rel="stylesheet" type="text/css" href="<?= get_stylesheet_uri(); ?>">
-    <script defer src="<?= get_template_directory_uri(); ?>/js/script.js"></script>
+    <script defer src="<?= get_template_directory_uri(); ?>/js/main.js"></script>
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
