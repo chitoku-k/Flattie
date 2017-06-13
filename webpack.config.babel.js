@@ -73,6 +73,11 @@ module.exports = {
             },
         ],
     },
+    resolve: {
+        alias: {
+            "jquery-fancybox": "jquery-fancybox/source/js/jquery.fancybox",
+        },
+    },
     plugins: [
         new webpack.optimize.UglifyJsPlugin(),
         new ExtractTextWebpackPlugin({

@@ -3,22 +3,20 @@
   "version": "2.0.0",
   "description": "Flat designed WordPress theme.",
   "main": "\"\"",
-  "dependencies": {
-    "async-gist": "^1.0.1",
-    "bootstrap-sass": "^3.3.7",
-    "font-awesome": "^4.7.0",
-    "jquery-fancybox": "^3.1.0"
-  },
   "devDependencies": {
+    "async-gist": "^1.0.1",
     "autoprefixer": "^7.1.1",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.0.0",
     "babel-preset-latest": "^6.24.1",
+    "bootstrap-sass": "^3.3.7",
     "clean-webpack-plugin": "^0.1.16",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.4",
     "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^0.11.2",
+    "font-awesome": "^4.7.0",
+    "jquery-fancybox": "^3.1.0",
     "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.5",
     "sass-loader": "^6.0.5",
@@ -29,6 +27,11 @@
     "start": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chitoku-k/Flattie.git"
+  },
+  "homepage": "https://chitoku.jp/",
   "author": "Chitoku <odango@chitoku.jp>",
   "license": "MIT"
 }
