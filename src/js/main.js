@@ -3,7 +3,7 @@ import "jquery-fancybox";
 import "async-gist";
 import "../scss/style.scss";
 
-$(() => {
+$(async () => {
     const WIDGET_URL = "https://platform.twitter.com/widgets.js";
     const $navbar = $("#nav-container > nav > ul");
     const $navSearchForm = $("#nav-search-form");
@@ -23,7 +23,6 @@ $(() => {
     $(".main-content a:not(.no-fancybox):not(.share-button)").fancybox({
         openEffect: "elastic",
         closeEffect: "elastic",
-        fitToView: false,
     });
 
     $(".share-button").on("click", (e) => {
@@ -31,7 +30,7 @@ $(() => {
         window.open(
             $(e.currentTarget).attr("href"),
             "share",
-            "height=400,width=600,left=" + (screen.width / 2 - 600 / 2) + ",top=" + (screen.height / 2 - 400 / 2)
+            "height=400,width=600,left=" + (screen.width / 2 - 600 / 2) + ",top=" + (screen.height / 2 - 400 / 2),
         );
     });
 
@@ -43,10 +42,9 @@ $(() => {
         timeout: 5000,
     });
 
-    $.getScript(WIDGET_URL).then(() => {
-        twttr.events.bind("rendered", (e) => {
-            $(e.target).css("padding", "0");
-            $(e.target.shadowRoot || e.target).contents().find(".EmbeddedTweet").css("max-width", "100%");
-        });
+    await $.getScript(WIDGET_URL);
+    twttr.events.bind("rendered", (e) => {
+        $(e.target).css("padding", "0");
+        $(e.target.shadowRoot || e.target).contents().find(".EmbeddedTweet").css("max-width", "100%");
     });
 });
