@@ -1,6 +1,5 @@
 import webpack from "webpack";
 import path from "path";
-import autoprefixer from "autoprefixer";
 import ExtractTextWebpackPlugin from "extract-text-webpack-plugin";
 import CleanWebpackPlugin from "clean-webpack-plugin";
 import CopyWebpackPlugin from "copy-webpack-plugin";
@@ -25,17 +24,10 @@ module.exports = {
                         {
                             loader: "css-loader",
                             options: {
-                                minimize: true,
-                            },
-                        },
-                        {
-                            loader: "postcss-loader",
-                            options: {
-                                plugins: () => [
-                                    autoprefixer({
-                                        browsers: ["last 2 versions"],
-                                    }),
-                                ],
+                                minimize: {
+                                    autoprefixer: ["last 2 versions"],
+                                    reduceInitial: false,
+                                },
                             },
                         },
                         {
