@@ -18,7 +18,7 @@ install:
   - npm install
 
 script:
-  - npm start
+  - npm run build
 
 after_success:
   - if [ "$TRAVIS_BRANCH" != "master" ] || [ "$TRAVIS_PULL_REQUEST" != "false" ]; then

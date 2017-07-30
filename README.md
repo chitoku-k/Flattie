@@ -20,7 +20,7 @@ $ npm install
 $ export FLATTIE_DIST='/path/to/directory'
 
 # コンパイル
-$ npm start
+$ npm run build
 ```
 
 [travis-link]:          https://travis-ci.org/chitoku-k/Flattie
