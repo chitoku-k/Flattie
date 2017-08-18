@@ -19,7 +19,6 @@ Version: 2.0.0
 /* Basic */
 html, body {
     background: #efefef;
-    -ms-overflow-style: scrollbar;
     word-wrap: break-word;
     height: calc(100% - 10px);
 }
@@ -389,6 +388,12 @@ footer {
         position: absolute;
         bottom: 0;
     }
+}
+
+/* IE Workaround */
+@-ms-viewport {
+    width: auto;
+    initial-scale: 1;
 }
 
 /* Media Queries */
