@@ -88,7 +88,7 @@ module.exports = {
         new ExtractTextWebpackPlugin({
             filename: getPath => getPath("[name].css").replace(/main\.css$/, "style.css"),
         }),
-        new CleanWebpackPlugin(dist),
+        new CleanWebpackPlugin(path.join(dist, "**/*")),
         new CopyWebpackPlugin([
             {
                 from: path.join(__dirname, "src/php/**/*"),
