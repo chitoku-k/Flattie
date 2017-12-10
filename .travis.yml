@@ -1,33 +1,12 @@
 language: node_js
-node_js: '7'
+node_js: '8'
 
 cache:
   directories:
     - node_modules
-
-before_install:
-  - if [ "$TRAVIS_BRANCH" != "master" ] || [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
-      return 0;
-    fi
-  - openssl aes-256-cbc -K $encrypted_8bcbb7dfbe41_key -iv $encrypted_8bcbb7dfbe41_iv -in ssh.enc -out ./ssh -d
-  - tar xf ssh
-  - mv config id_rsa ~/.ssh/
-  - chmod 600 ~/.ssh/id_rsa
 
 install:
   - npm install
 
 script:
   - npm run build
-
-after_success:
-  - if [ "$TRAVIS_BRANCH" != "master" ] || [ "$TRAVIS_PULL_REQUEST" != "false" ]; then
-      exit 0;
-    fi
-  - cd dist
-  - |
-    echo "
-      cd /vhosts/chitoku.jp/httpdocs/wordpress/wp-content/themes/flattie
-      put -r .
-      exit
-    " | sftp -q -b - chitoku.jp
