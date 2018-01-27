@@ -35,5 +35,7 @@ add_filter( 'wp_default_scripts', function ( $scripts ) {
         return;
     }
 
+    // Remove jQuery and pretend that it was loaded
     $scripts->remove( 'jquery' );
+    $scripts->add( 'jquery', '' );
 } );
