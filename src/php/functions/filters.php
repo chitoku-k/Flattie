@@ -29,3 +29,11 @@ add_filter( 'post_class', function ( $classes = '' ) {
     }
     return $classes;
 } );
+
+add_filter( 'wp_default_scripts', function ( $scripts ) {
+    if ( is_admin() ) {
+        return;
+    }
+
+    $scripts->remove( 'jquery' );
+} );

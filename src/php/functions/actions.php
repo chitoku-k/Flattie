@@ -7,22 +7,18 @@ remove_action( 'wp_head', 'wp_generator' );
 remove_action( 'wp_head', 'rsd_link' );
 
 add_action( 'init', function () {
-    global $error_code;
-    if ( isset( $_GET['error'] ) ) {
-        $error_code = $_GET['error'];
-    }
+    $GLOBALS['error_code'] = $_GET['error'] ?? null;
 }, 100 );
 
 add_action( 'get_header', function () {
-    global $error_code;
     if ( is_404() ) {
-        $error_code = 404;
+        $GLOBALS['error_code'] = 404;
     }
 }, 100 );
 
 add_action( 'wp_enqueue_scripts', function () {
     wp_enqueue_style( 'flattie-style', get_stylesheet_uri() );
-    wp_enqueue_script( 'flattie-script', get_template_directory_uri() . '/js/main.js', array( 'jquery' ) );
+    wp_enqueue_script( 'flattie-script', get_template_directory_uri() . '/js/main.js' );
 } );
 
 add_action( 'widgets_init', function () {
