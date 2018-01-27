@@ -1,8 +1,4 @@
 <?php
-require_once __DIR__ . '/../classes/class-flattie-nav-walker.php';
-require_once __DIR__ . '/../classes/class-same-category-posts-widget.php';
-require_once __DIR__ . '/../classes/class-share-button-widget.php';
-
 remove_action( 'wp_head', 'wp_generator' );
 remove_action( 'wp_head', 'rsd_link' );
 

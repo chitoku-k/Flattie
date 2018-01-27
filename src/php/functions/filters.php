@@ -1,4 +1,8 @@
 <?php
+function remove_ver_query( $url ) {
+    return remove_query_arg( 'ver', $url );
+}
+
 remove_filter( 'template_redirect', 'redirect_canonical' );
 add_filter( 'style_loader_src', 'remove_ver_query', 9999 );
 add_filter( 'script_loader_src', 'remove_ver_query', 9999 );
