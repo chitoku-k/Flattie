@@ -1,6 +1,6 @@
 import $ from "jquery";
 import "jquery-fancybox";
-import "async-gist";
+import "gist-embed";
 import "babel-polyfill";
 import "../scss/style.scss";
 
@@ -37,10 +37,6 @@ $(async () => {
 
     $(".navbar-nav .dropdown-menu .current-post-ancestor").each(function () {
         $(this).parents(".dropdown").addClass("active");
-    });
-
-    $("[data-gist]").gist({
-        timeout: 5000,
     });
 
     await $.getScript(WIDGET_URL);
