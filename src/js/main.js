@@ -4,6 +4,7 @@ import "babel-polyfill";
 import "../scss/style.scss";
 
 $(async () => {
+    window.jQuery = jQuery;
     const WIDGET_URL = "https://platform.twitter.com/widgets.js";
     const $navbar = $("#nav-container > nav > ul");
     const $navSearchForm = $("#nav-search-form");
