@@ -1,4 +1,3 @@
-import $ from "jquery";
 import "jquery-fancybox";
 import "gist-embed";
 import "babel-polyfill";

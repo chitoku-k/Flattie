@@ -82,6 +82,10 @@ module.exports = {
     },
     plugins: [
         new webpack.optimize.UglifyJsPlugin(),
+        new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery",
+        }),
         new ExtractTextWebpackPlugin({
             filename: getPath => getPath("[name].css").replace(/main\.css$/, "style.css"),
         }),
