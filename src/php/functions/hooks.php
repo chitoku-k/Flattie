@@ -39,7 +39,7 @@ $wp_scripts = new class extends WP_Scripts {
  * Hooks relating to scripts loaded by All in One SEO Pack
  *
  * The All in One SEO Pack outputs script elements with type attribute attached.
- * In HTML5, it is advised to emit type attribute and replacing the function
+ * In HTML5, it is advised to omit type attribute and replacing the function
  * `universal_analytics` in aioseop_google_analytics did the trick.
  */
 if ( class_exists( 'aioseop_google_analytics' ) ) {
@@ -49,11 +49,11 @@ if ( class_exists( 'aioseop_google_analytics' ) ) {
 
         // Add an action replacing the type attribute
         add_action(
-            'wp_head',
+            'aioseop_modules_wp_head',
             function () {
                 new class extends aioseop_google_analytics {
                     public function universal_analytics() {
-                        return str_replace( ' type="text/javascript" ', '', parent::universal_analytics() ) . "\n";
+                        return str_replace( ' type="text/javascript" ', '', parent::universal_analytics() );
                     }
                 };
             },
