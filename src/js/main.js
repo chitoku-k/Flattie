@@ -3,8 +3,9 @@ import "gist-embed";
 import "babel-polyfill";
 import "../scss/style.scss";
 
+require("expose-loader?jQuery!jquery");
+
 $(async () => {
-    window.jQuery = jQuery;
     const WIDGET_URL = "https://platform.twitter.com/widgets.js";
     const $navbar = $("#nav-container > nav > ul");
     const $navSearchForm = $("#nav-search-form");
