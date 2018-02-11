@@ -5,7 +5,7 @@ import "../scss/style.scss";
 
 require("expose-loader?jQuery!jquery");
 
-$(async () => {
+jQuery(async ($) => {
     const WIDGET_URL = "https://platform.twitter.com/widgets.js";
     const $navbar = $("#nav-container > nav > ul");
     const $navSearchForm = $("#nav-search-form");
