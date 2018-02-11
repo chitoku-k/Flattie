@@ -92,7 +92,7 @@ module.exports = {
                 mangle: false,
             },
         }),
-        new CleanPlugin(path.join(dist, "**")),
+        new CleanPlugin(path.join(__dirname, "dist", "**")),
         new CopyPlugin([
             {
                 from: path.join(__dirname, "src/php/**"),
