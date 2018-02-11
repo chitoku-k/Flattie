@@ -4,14 +4,13 @@ import autoprefixer from "autoprefixer";
 import CleanPlugin from "clean-webpack-plugin";
 import CopyPlugin from "copy-webpack-plugin";
 
-const dist = process.env.FLATTIE_DIST || path.join(__dirname, "dist");
 module.exports = {
     entry: {
         "js/main": path.join(__dirname, "src/js/main.js"),
         "js/editor": path.join(__dirname, "src/js/editor.js"),
     },
     output: {
-        path: dist,
+        path: path.join(__dirname, "dist"),
         filename: "[name].js",
     },
     module: {
@@ -25,7 +24,6 @@ module.exports = {
                     {
                         loader: "css-loader",
                         options: {
-                            url: false,
                             minimize: {
                                 reduceInitial: false,
                             },
@@ -69,6 +67,7 @@ module.exports = {
                         options: {
                             name: "[hash].[ext]",
                             outputPath: "assets/",
+                            publicPath: process.env.FLATTIE_PATH || "/",
                         },
                     },
                 ],
@@ -77,6 +76,7 @@ module.exports = {
     },
     resolve: {
         alias: {
+            "jquery": "jquery/src/jquery",
             "jquery-fancybox": "jquery-fancybox/source/js/jquery.fancybox",
         },
     },
@@ -96,12 +96,12 @@ module.exports = {
         new CopyPlugin([
             {
                 from: path.join(__dirname, "src/php/**"),
-                to: dist,
+                to: path.join(__dirname, "dist"),
                 context: "src/php",
             },
             {
                 from: path.join(__dirname, "src/style.css"),
-                to: dist,
+                to: path.join(__dirname, "dist"),
                 context: "src",
             },
         ]),

@@ -1,11 +1,10 @@
+import $ from "jquery";
 import "jquery-fancybox";
 import "gist-embed";
 import "babel-polyfill";
 import "../scss/style.scss";
 
-require("expose-loader?jQuery!jquery");
-
-jQuery(async ($) => {
+$(async () => {
     const WIDGET_URL = "https://platform.twitter.com/widgets.js";
     const $navbar = $("#nav-container > nav > ul");
     const $navSearchForm = $("#nav-search-form");
