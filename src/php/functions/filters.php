@@ -11,7 +11,7 @@ add_filter( 'style_loader_tag', function ( $tag ) {
     return str_replace( "type='text/css' ", '', $tag );
 } );
 add_filter( 'script_loader_tag', function ( $tag ) {
-    return str_replace( "type='text/javascript'", 'defer', $tag );
+    return str_replace( "type='text/javascript'", '', $tag );
 } );
 
 add_filter( 'the_content_more_link', function ( $output, $more_link_text ) {
