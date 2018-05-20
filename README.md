@@ -2,7 +2,6 @@ Flattie
 =======
 
 [![][travis-badge]][travis-link]
-[![][dependencies-badge]][dependencies-link]
 
 [ちとくのホームページ](https://chitoku.jp/) で使用されている WordPress テーマです。
 
@@ -26,5 +25,3 @@ $ npm run build
 
 [travis-link]:          https://travis-ci.org/chitoku-k/Flattie
 [travis-badge]:         https://img.shields.io/travis/chitoku-k/Flattie.svg?style=flat-square
-[dependencies-link]:    https://gemnasium.com/github.com/chitoku-k/Flattie
-[dependencies-badge]:   https://img.shields.io/gemnasium/chitoku-k/Flattie.svg?style=flat-square

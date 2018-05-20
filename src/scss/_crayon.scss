@@ -10,6 +10,11 @@
         border-right-width: 0 !important;
         min-width: 50px !important;
     }
+    &.crayon-syntax-inline {
+        &, .crayon-code {
+            font-size: inherit !important;
+        }
+    }
 }
 .crayon-main, .gist .gist-data {
     -webkit-overflow-scrolling: touch;
