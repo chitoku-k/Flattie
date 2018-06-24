@@ -5,6 +5,7 @@ import CleanPlugin from "clean-webpack-plugin";
 import CopyPlugin from "copy-webpack-plugin";
 
 module.exports = {
+    mode: "production",
     entry: {
         "js/main": path.join(__dirname, "src/js/main.js"),
         "js/editor": path.join(__dirname, "src/js/editor.js"),
@@ -81,17 +82,6 @@ module.exports = {
         },
     },
     plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            mangle: false,
-            parallel: true,
-            sourceMap: false,
-            compress: {
-                warnings: false,
-            },
-            uglifyOptions: {
-                mangle: false,
-            },
-        }),
         new CleanPlugin(path.join(__dirname, "dist", "**")),
         new CopyPlugin([
             {
