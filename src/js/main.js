@@ -4,7 +4,12 @@ import "gist-embed";
 import "babel-polyfill";
 import "../scss/style.scss";
 
+import hljs from "highlightjs";
+import "../../node_modules/highlightjs/styles/darcula.css";
+
 $(async () => {
+    hljs.initHighlightingOnLoad();
+
     const WIDGET_URL = "https://platform.twitter.com/widgets.js";
     const $navbar = $("#nav-container > nav > ul");
     const $navSearchForm = $("#nav-search-form");

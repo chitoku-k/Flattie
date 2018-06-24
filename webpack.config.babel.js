@@ -17,6 +17,22 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: "style-loader",
+                    },
+                    {
+                        loader: "css-loader",
+                        options: {
+                            minimize: {
+                                reduceInitial: false,
+                            },
+                        },
+                    },
+                ],
+            },
+            {
                 test: /\.scss$/,
                 use: [
                     {
@@ -68,7 +84,7 @@ module.exports = {
                         options: {
                             name: "[hash].[ext]",
                             outputPath: "assets/",
-                            publicPath: process.env.FLATTIE_PATH || "/",
+                            publicPath: process.env.FLATTIE_PATH + "assets/" || "/assets/",
                         },
                     },
                 ],
