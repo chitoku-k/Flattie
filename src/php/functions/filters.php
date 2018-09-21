@@ -43,3 +43,7 @@ add_filter( 'wp_default_scripts', function ( $scripts ) {
     $scripts->remove( 'jquery' );
     $scripts->add( 'jquery', '' );
 } );
+
+add_filter( 'pre_option_upload_url_path', function () {
+    return 'https://cdn.chitoku.jp/uploads';
+} );
