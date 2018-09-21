@@ -1,8 +1,8 @@
-import webpack from "webpack";
-import path from "path";
-import autoprefixer from "autoprefixer";
-import CleanPlugin from "clean-webpack-plugin";
-import CopyPlugin from "copy-webpack-plugin";
+const webpack = require("webpack");
+const path = require("path");
+const autoprefixer = require("autoprefixer");
+const CleanPlugin = require("clean-webpack-plugin");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
     mode: "production",

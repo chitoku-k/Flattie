@@ -1,7 +1,7 @@
 import $ from "jquery";
 import "jquery-fancybox";
 import "gist-embed";
-import "babel-polyfill";
+import "@babel/polyfill";
 import "../scss/style.scss";
 
 import hljs from "highlightjs";
