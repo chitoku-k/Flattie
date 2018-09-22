@@ -44,6 +44,31 @@ add_filter( 'wp_default_scripts', function ( $scripts ) {
     $scripts->add( 'jquery', '' );
 } );
 
-add_filter( 'pre_option_upload_url_path', function () {
-    return 'https://cdn.chitoku.jp/uploads';
-} );
+if ( defined( 'FLATTIE_TEMPLATE_URL' ) ) {
+    add_filter( 'template', function () {
+        return '';
+    } );
+
+    add_filter( 'theme_root_uri', function () {
+        return FLATTIE_TEMPLATE_URL;
+    } );
+}
+
+if ( defined( 'FLATTIE_UPLOADS_URL' ) ) {
+    add_filter( 'upload_dir', function ( $args ) {
+        $args[ 'baseurl' ] = FLATTIE_UPLOADS_URL;
+        return $args;
+    } );
+}
+
+if ( defined( 'FLATTIE_INCLUDES_URL' ) ) {
+    add_filter( 'site_url', function ( $url ) {
+        if ( is_admin() ) {
+            return $url;
+        }
+        if ( preg_match( '|/wp-includes(?<path>/.*)|', $url, $matches ) ) {
+            return FLATTIE_INCLUDES_URL . $matches[ 'path' ];
+        }
+        return $url;
+    } );
+}
