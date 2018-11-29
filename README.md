@@ -23,13 +23,13 @@ $ npm run build
 
 ## 環境変数（任意）
 
-- アセットの参照先: `FLATTIE_PATH` （既定値: `/`）
+- `FLATTIE_PATH`: アセットの参照先（既定値: `/`）
 
-# PHP 定数（任意)
+## PHP 定数（任意)
 
-- `FLATTIE_TEMPLATE_URL`
-- `FLATTIE_UPLOADS_URL`
-- `FLATTIE_INCLUDES_URL`
+- `FLATTIE_TEMPLATE_URL`: テンプレートの URL（例：`https://example.com/wp-content/themes/flattie`）
+- `FLATTIE_UPLOADS_URL`: アップロードの URL（例：`https://example.com/wp-content/uploads`）
+- `FLATTIE_INCLUDES_URL`: インクルードの URL（例：`https://example.com/wp-includes`）
 
 [travis-link]:          https://travis-ci.org/chitoku-k/Flattie
 [travis-badge]:         https://img.shields.io/travis/chitoku-k/Flattie.svg?style=flat-square
