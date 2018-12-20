@@ -24,7 +24,8 @@ add_action( 'wpcf7_enqueue_styles', function () {
 
 add_action( 'wpcf7_enqueue_scripts', function () {
     if ( ! is_page( 'mail' ) ) {
-        wp_deregister_script( 'jquery-form' );
+        wp_deregister_script( 'contact-form-7' );
+        wp_deregister_script( 'google-recaptcha' );
     }
 } );
 
