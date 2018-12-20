@@ -14,18 +14,11 @@ add_action( 'get_header', function () {
 
 add_action( 'wp_enqueue_scripts', function () {
     wp_enqueue_script( 'flattie-script', get_template_directory_uri() . 'js/main.js' );
-} );
 
-add_action( 'wpcf7_enqueue_styles', function () {
     if ( ! is_page( 'mail' ) ) {
         wp_deregister_style( 'contact-form-7' );
-    }
-} );
-
-add_action( 'wpcf7_enqueue_scripts', function () {
-    if ( ! is_page( 'mail' ) ) {
-        wp_deregister_script( 'contact-form-7' );
-        wp_deregister_script( 'google-recaptcha' );
+        wp_dequeue_script( 'contact-form-7' );
+        wp_dequeue_script( 'google-recaptcha' );
     }
 } );
 
