@@ -3,7 +3,8 @@ Flattie
 
 [![][travis-badge]][travis-link]
 
-[ちとくのホームページ](https://chitoku.jp/) で使用されている WordPress テーマです。
+[ちとくのホームページ](https://chitoku.jp/) で使用されていた WordPress テーマです。  
+2019 年にコンテンツを含めて [chitoku-k/chitoku.jp][chitoku.jp] に移動しました。
 
 ## ビルド
 
@@ -33,3 +34,4 @@ $ npm run build
 
 [travis-link]:          https://travis-ci.org/chitoku-k/Flattie
 [travis-badge]:         https://img.shields.io/travis/chitoku-k/Flattie.svg?style=flat-square
+[chitoku.jp]:           https://github.com/chitoku-k/chitoku.jp
